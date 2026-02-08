@@ -1,0 +1,193 @@
+/*==========================================
+  FIX VISIBILIDAD MENÚ MÓVIL - CR DIGITAL
+  Asegurar que el menú sea completamente visible
+==========================================*/
+
+/*==================== MENÚ MÓVIL - MÁXIMA VISIBILIDAD ====================*/
+@media screen and (max-width: 768px) {
+  /* Menú cuando está abierto - FORZAR VISIBILIDAD */
+  .nav__menu.show-menu {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 99999 !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 85% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    background: rgba(10, 14, 39, 1) !important; /* Fondo sólido para mejor visibilidad */
+    backdrop-filter: blur(20px) !important;
+    padding: 2rem 1.5rem !important;
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.9) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    flex-direction: column !important;
+    pointer-events: all !important;
+    transform: translateX(0) !important;
+  }
+  
+  /* Lista del menú - COMPLETAMENTE VISIBLE */
+  .nav__menu.show-menu .nav__list {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    margin-top: 3rem !important;
+    width: 100% !important;
+    padding: 0 !important;
+    list-style: none !important;
+    z-index: 99999 !important;
+    position: relative !important;
+  }
+  
+  /* Items del menú - VISIBLES */
+  .nav__menu.show-menu .nav__item {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Links del menú - VISIBLES Y ACCESIBLES */
+  .nav__menu.show-menu .nav__link {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--text-color) !important;
+    font-size: 1.125rem !important;
+    font-weight: 500 !important;
+    padding: 0.75rem 0 !important;
+    width: 100% !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.1) !important;
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+  
+  /* Hover de links */
+  .nav__menu.show-menu .nav__link:hover {
+    color: var(--primary-color) !important;
+    padding-left: 0.5rem !important;
+    border-bottom-color: var(--primary-color) !important;
+  }
+  
+  /* Link activo */
+  .nav__menu.show-menu .nav__link.active-link {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+    border-bottom-color: var(--primary-color) !important;
+  }
+  
+  /* Botón cerrar - SIEMPRE VISIBLE CUANDO EL MENÚ ESTÁ ABIERTO */
+  .nav__menu.show-menu .nav__close {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 1.5rem !important;
+    color: var(--primary-color) !important;
+    background: rgba(0, 217, 255, 0.15) !important;
+    border: 2px solid rgba(0, 217, 255, 0.3) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 100000 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    pointer-events: all !important;
+  }
+  
+  .nav__menu.show-menu .nav__close:hover {
+    background: rgba(0, 217, 255, 0.25) !important;
+    border-color: var(--primary-color) !important;
+    transform: scale(1.1) rotate(90deg) !important;
+  }
+  
+  .nav__menu.show-menu .nav__close i {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Overlay - DETRÁS DEL MENÚ */
+  .nav__menu.show-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 99998 !important;
+    animation: fadeIn 0.3s ease;
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Asegurar que el menú esté por encima de TODO */
+  body.menu-open .nav__menu.show-menu {
+    z-index: 99999 !important;
+  }
+  
+  /* Ocultar otros elementos cuando el menú está abierto */
+  body.menu-open .header {
+    z-index: 1000 !important;
+  }
+  
+  body.menu-open main,
+  body.menu-open .hero,
+  body.menu-open .section {
+    z-index: 1 !important;
+  }
+  
+  /* WhatsApp flotante - detrás del menú */
+  body.menu-open .whatsapp-float {
+    z-index: 1 !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+  }
+}
+
+/*==================== DEBUG - Descomentar para ver estructura ====================*/
+/*
+@media screen and (max-width: 768px) {
+  .nav__menu.show-menu {
+    outline: 3px solid red !important;
+  }
+  
+  .nav__menu.show-menu .nav__list {
+    outline: 2px solid blue !important;
+  }
+  
+  .nav__menu.show-menu .nav__link {
+    outline: 1px solid green !important;
+  }
+  
+  .nav__menu.show-menu .nav__close {
+    outline: 2px solid yellow !important;
+  }
+}
+*/
