@@ -17,30 +17,50 @@ const scrollUp = document.getElementById('scroll-up');
 const sections = document.querySelectorAll('section[id]');
 
 /*==================== MENÚ MÓVIL ====================*/
+// Función para abrir menú
+function openMenu() {
+    if (navMenu) {
+        navMenu.classList.add('show-menu');
+        document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100vw';
+    }
+}
+
+// Función para cerrar menú
+function closeMenu() {
+    if (navMenu) {
+        navMenu.classList.remove('show-menu');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+    }
+}
+
 // Mostrar menú móvil
 if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu');
-        // Prevenir scroll del body cuando el menú está abierto
-        document.body.style.overflow = 'hidden';
+    navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openMenu();
     });
 }
 
 // Ocultar menú móvil
 if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        // Restaurar scroll del body
-        document.body.style.overflow = '';
+    navClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeMenu();
     });
 }
 
 // Cerrar menú al hacer clic en un link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        // Restaurar scroll del body
-        document.body.style.overflow = '';
+        closeMenu();
     });
 });
 
@@ -48,11 +68,24 @@ navLinks.forEach(link => {
 if (navMenu) {
     navMenu.addEventListener('click', (e) => {
         if (e.target === navMenu) {
-            navMenu.classList.remove('show-menu');
-            document.body.style.overflow = '';
+            closeMenu();
         }
     });
 }
+
+// Cerrar menú con ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('show-menu')) {
+        closeMenu();
+    }
+});
+
+// Cerrar menú al redimensionar ventana (si pasa de móvil a desktop)
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 992 && navMenu && navMenu.classList.contains('show-menu')) {
+        closeMenu();
+    }
+});
 
 /*==================== HEADER CON SCROLL ====================*/
 // Cambiar estilo del header al hacer scroll
