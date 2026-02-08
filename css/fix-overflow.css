@@ -144,6 +144,23 @@ img {
     width: 100% !important;
   }
   
+  /* Fix para el navbar y logo */
+  .nav,
+  .nav__container {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  .nav__logo {
+    max-width: 150px !important;
+  }
+  
+  .nav__logo-img {
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 40px !important;
+  }
+  
   /* Hero en móvil */
   .hero {
     padding-left: 0 !important;

@@ -126,18 +126,50 @@
 /*==================== NAVBAR MÓVIL MEJORADO ====================*/
 @media screen and (max-width: 768px) {
   .nav {
-    padding: 0.875rem 0;
-    background: rgba(10, 14, 39, 0.95);
+    padding: 0.75rem 0;
+    background: rgba(10, 14, 39, 0.98);
     backdrop-filter: blur(10px);
   }
   
   .nav__container {
     padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Logo en móvil - más pequeño y limpio */
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    position: relative;
   }
   
   .nav__logo-img {
-    height: 32px;
-    width: auto;
+    height: 35px !important;
+    width: auto !important;
+    max-width: 120px;
+    object-fit: contain;
+  }
+  
+  /* Desactivar efectos complejos del logo en móvil */
+  .nav__logo.logo__energy::before,
+  .nav__logo.logo__hologram::before,
+  .nav__logo .wave__ring,
+  .nav__logo .logo__click-effect {
+    display: none !important;
+  }
+  
+  /* Simplificar animaciones del logo en móvil */
+  .nav__logo-img {
+    animation: none !important;
+    filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.3)) !important;
+  }
+  
+  .nav__logo:hover .nav__logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5)) !important;
   }
   
   /* Menú hamburguesa más visible */
@@ -553,6 +585,20 @@
 
 /*==================== MÓVILES PEQUEÑOS (<576px) ====================*/
 @media screen and (max-width: 576px) {
+  /* Logo aún más pequeño en móviles muy pequeños */
+  .nav__logo-img {
+    height: 30px !important;
+    max-width: 100px !important;
+  }
+  
+  .nav {
+    padding: 0.5rem 0;
+  }
+  
+  .nav__container {
+    padding: 0 0.75rem;
+  }
+  
   .hero__title {
     font-size: 1.75rem;
   }
