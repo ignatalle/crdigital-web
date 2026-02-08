@@ -172,85 +172,7 @@
     filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5)) !important;
   }
   
-  /* Menú hamburguesa más visible */
-  .nav__toggle {
-    font-size: 1.75rem;
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .nav__toggle:active {
-    transform: scale(0.9);
-  }
-  
-  /* Menú lateral optimizado */
-  .nav__menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 85%;
-    max-width: 320px;
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(10, 14, 39, 0.98) 0%, rgba(19, 24, 41, 0.98) 100%);
-    backdrop-filter: blur(20px);
-    padding: var(--spacing-3xl) var(--spacing-xl);
-    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 1000;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7);
-    overflow-y: auto;
-  }
-  
-  .nav__menu.show-menu {
-    right: 0;
-  }
-  
-  .nav__list {
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-2xl);
-  }
-  
-  .nav__link {
-    font-size: var(--font-size-lg);
-    padding: var(--spacing-sm) 0;
-    width: 100%;
-    justify-content: flex-start;
-  }
-  
-  .nav__close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 2rem;
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .nav__close:active {
-    transform: rotate(90deg) scale(0.9);
-  }
-  
-  /* Overlay oscuro cuando el menú está abierto */
-  .nav__menu::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-  
-  .nav__menu.show-menu::before {
-    opacity: 1;
-    pointer-events: all;
-  }
+  /* Reglas de menú móvil eliminadas - centralizadas en styles.css */
 }
 
 /*==================== HERO MÓVIL OPTIMIZADO ====================*/
@@ -616,9 +538,12 @@
     font-size: var(--font-size-sm);
   }
   
+  /* ========== REGLA DE MENÚ COMENTADA - CENTRALIZADA EN menu-overlay-final.css ========== */
+  /*
   .nav__menu {
     width: 90%;
   }
+  */
   
   .hero__stat {
     padding: var(--spacing-sm);
@@ -655,9 +580,7 @@
   
   /* Reducir blur en móvil para mejor rendimiento */
   .nav,
-  .nav__menu {
-    backdrop-filter: blur(10px);
-  }
+  /* Reglas de menú eliminadas - centralizadas en styles.css */
 }
 
 /*==================== LANDSCAPE MÓVIL ====================*/

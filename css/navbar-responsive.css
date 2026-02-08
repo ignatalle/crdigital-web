@@ -1,0 +1,425 @@
+/*==========================================
+  NAVBAR RESPONSIVE - CR DIGITAL
+  Solución limpia y funcional para móviles y PC
+==========================================*/
+
+/*==================== NAVBAR BASE ====================*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  padding: 0 var(--container-padding);
+}
+
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/*==================== LOGO ====================*/
+.nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1001;
+}
+
+.nav__logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav__logo:hover .nav__logo-img {
+  transform: scale(1.05);
+}
+
+/*==================== MENÚ DESKTOP ====================*/
+.nav__menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active-link {
+  color: var(--primary-color);
+}
+
+.nav__link:hover::after,
+.nav__link.active-link::after {
+  width: 100%;
+}
+
+/*==================== BOTONES NAVBAR ====================*/
+.nav__buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  z-index: 1001;
+}
+
+.nav__toggle,
+.nav__close {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1002;
+}
+
+.nav__toggle:hover,
+.nav__close:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/*==================== RESPONSIVE - TABLET Y MÓVIL ====================*/
+@media screen and (max-width: 992px) {
+  .nav {
+    height: 4rem;
+    padding: 0 1rem;
+  }
+  
+  .nav__container {
+    gap: 1rem;
+  }
+  
+  .nav__logo-img {
+    height: 35px;
+    max-width: 140px;
+  }
+  
+  /* ========== REGLAS DE MENÚ MÓVIL COMENTADAS - CENTRALIZADAS EN styles.css ========== */
+  /*
+  .nav__menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 85% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    background: rgba(10, 14, 39, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    padding: 5rem 2rem 2rem !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7) !important;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    z-index: 10000 !important; /* MÁXIMO - Por encima de TODO */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+  }
+  
+  .nav__menu.show-menu {
+    right: 0 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10000 !important;
+  }
+  
+  /* Lista móvil - COMPLETAMENTE VISIBLE */
+  .nav__menu.show-menu .nav__list {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    z-index: 10001 !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  
+  /* Items del menú - VISIBLES */
+  .nav__menu.show-menu .nav__item {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Links del menú - VISIBLES Y ACCESIBLES */
+  .nav__menu.show-menu .nav__link {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 1.125rem !important;
+    width: 100% !important;
+    padding: 0.75rem 0 !important;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.1) !important;
+    z-index: 10001 !important;
+    position: relative !important;
+    color: var(--text-color) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .nav__link::after {
+    display: none;
+  }
+  
+  .nav__link:hover,
+  .nav__link.active-link {
+    padding-left: 0.5rem;
+    border-bottom-color: var(--primary-color);
+  }
+  
+  /* Botón hamburguesa */
+  .nav__toggle {
+    display: flex !important;
+    z-index: 10002 !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Botón cerrar - SIEMPRE VISIBLE cuando el menú está abierto */
+  .nav__close {
+    display: none;
+  }
+  
+  .nav__menu.show-menu .nav__close {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    background: rgba(0, 217, 255, 0.15) !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(0, 217, 255, 0.3) !important;
+    z-index: 10001 !important; /* Por encima del menú */
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .nav__menu.show-menu .nav__close:hover {
+    background: rgba(0, 217, 255, 0.25) !important;
+    border-color: var(--primary-color) !important;
+    transform: scale(1.1) rotate(90deg) !important;
+  }
+  
+  .nav__menu.show-menu .nav__close i {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem !important;
+  }
+  
+  /* Ocultar botón CTA en móvil */
+  .nav__buttons .button--primary {
+    display: none;
+  }
+  
+  /* Overlay oscuro - DETRÁS del menú */
+  .nav__menu.show-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999 !important; /* Detrás del menú pero por encima de todo lo demás */
+    animation: fadeIn 0.3s ease;
+    pointer-events: all;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Asegurar que otros elementos estén DETRÁS */
+  body.menu-open .header {
+    z-index: 1000 !important;
+  }
+  
+  body.menu-open main,
+  body.menu-open .hero,
+  body.menu-open .section,
+  body.menu-open .services,
+  body.menu-open .process,
+  body.menu-open .cta,
+  body.menu-open .footer {
+    z-index: 1 !important;
+  }
+  
+  /* WhatsApp y scroll-up DETRÁS del menú */
+  body.menu-open .whatsapp-float {
+    z-index: 1 !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+  }
+  
+  body.menu-open .scroll-up {
+    z-index: 1 !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+  }
+  */
+}
+
+/*==================== RESPONSIVE - MÓVIL ====================*/
+@media screen and (max-width: 768px) {
+  .nav {
+    height: 3.5rem;
+    padding: 0 1rem;
+  }
+  
+  .nav__logo-img {
+    height: 32px;
+    max-width: 120px;
+  }
+  
+  /* ========== REGLAS DE MENÚ COMENTADAS - CENTRALIZADAS EN menu-overlay-final.css ========== */
+  /*
+  .nav__menu {
+    width: 85%;
+    max-width: 300px;
+    padding: 4rem 1.5rem 2rem;
+    z-index: 10000 !important;
+  }
+  
+  .nav__toggle {
+    font-size: 1.5rem;
+    z-index: 1001;
+  }
+  
+  .nav__toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  body.menu-open .nav__toggle {
+    display: none !important;
+  }
+  */
+}
+
+/*==================== RESPONSIVE - MÓVIL PEQUEÑO ====================*/
+@media screen and (max-width: 576px) {
+  .nav {
+    height: 3.25rem;
+    padding: 0 0.75rem;
+  }
+  
+  .nav__logo-img {
+    height: 30px;
+    max-width: 100px;
+  }
+  
+  /* ========== REGLAS DE MENÚ COMENTADAS - CENTRALIZADAS EN menu-overlay-final.css ========== */
+  /*
+  .nav__menu {
+    width: 90%;
+    max-width: 280px;
+    padding: 3.5rem 1.25rem 1.5rem;
+    z-index: 10000 !important;
+  }
+  
+  .nav__list {
+    gap: 1.25rem;
+  }
+  
+  .nav__link {
+    font-size: 1rem;
+  }
+  */
+}
+
+/*==================== PREVENIR OVERFLOW ====================*/
+@media screen and (max-width: 992px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  .header,
+  .nav,
+  .nav__container {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* Reglas de menú eliminadas - centralizadas en styles.css */

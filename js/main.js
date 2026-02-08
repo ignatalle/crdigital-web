@@ -20,15 +20,25 @@ const sections = document.querySelectorAll('section[id]');
 // Función para abrir menú
 function openMenu() {
     if (navMenu) {
+        // LIMPIAR ESTILO EN LÍNEA CONFLICTIVO ANTES DE AGREGAR LA CLASE
+        navMenu.style.right = ''; // <--- ESTO BORRA EL -100%
+        navMenu.style.removeProperty('right');
+        navMenu.style.transition = 'right 0.4s ease'; // Reactiva la animación
+        
+        // Agregar clase para mostrar el menú
         navMenu.classList.add('show-menu');
         document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100vw';
         document.body.style.height = '100vh';
-        // Ocultar botón hamburguesa
+        
+        // Actualizar accesibilidad
         if (navToggle) {
-            navToggle.style.display = 'none';
+            navToggle.setAttribute('aria-expanded', 'true');
+        }
+        if (navClose) {
+            navClose.setAttribute('aria-expanded', 'true');
         }
     }
 }
@@ -42,16 +52,29 @@ function closeMenu() {
         document.body.style.position = '';
         document.body.style.width = '';
         document.body.style.height = '';
-        // Mostrar botón hamburguesa
+        
+        // Ocultar menú - usar setTimeout para permitir que la transición CSS funcione
+        setTimeout(() => {
+            navMenu.style.right = '-100%';
+        }, 400); // Después de la transición CSS (0.4s)
+        
+        // Actualizar accesibilidad
         if (navToggle) {
+            navToggle.setAttribute('aria-expanded', 'false');
             navToggle.style.display = 'flex';
+            navToggle.style.visibility = 'visible';
+            navToggle.style.opacity = '1';
+        }
+        if (navClose) {
+            navClose.setAttribute('aria-expanded', 'false');
+            navClose.style.display = 'none';
         }
     }
 }
 
 // Mostrar menú móvil
 if (navToggle) {
-    navToggle.addEventListener('click', (e) => {
+    navToggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         openMenu();
@@ -60,7 +83,7 @@ if (navToggle) {
 
 // Ocultar menú móvil
 if (navClose) {
-    navClose.addEventListener('click', (e) => {
+    navClose.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         closeMenu();
@@ -68,30 +91,78 @@ if (navClose) {
 }
 
 // Cerrar menú al hacer clic en un link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        closeMenu();
-    });
-});
-
-// Cerrar menú al hacer clic fuera de él (en el overlay)
-if (navMenu) {
-    navMenu.addEventListener('click', (e) => {
-        if (e.target === navMenu) {
+if (navLinks && navLinks.length > 0) {
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
             closeMenu();
-        }
+        });
     });
 }
 
+// Cerrar menú al hacer clic fuera (en el overlay)
+document.addEventListener('click', function(e) {
+    if (navMenu && navMenu.classList.contains('show-menu')) {
+        // Si el clic es en el overlay (fuera del menú)
+        const menuRect = navMenu.getBoundingClientRect();
+        const clickedInsideMenu = (
+            e.clientX >= menuRect.left &&
+            e.clientX <= menuRect.right &&
+            e.clientY >= menuRect.top &&
+            e.clientY <= menuRect.bottom
+        );
+        
+        // Verificar si el clic es en el botón cerrar o sus hijos
+        const clickedOnClose = navClose && (
+            e.target === navClose || 
+            navClose.contains(e.target)
+        );
+        
+        // Si el clic NO es en el menú ni en el botón hamburguesa ni en el botón cerrar
+        // entonces cerrar el menú (clic en overlay)
+        if (!clickedInsideMenu && 
+            e.target !== navToggle && 
+            !navToggle?.contains(e.target) &&
+            !clickedOnClose) {
+            closeMenu();
+        }
+    }
+});
+
+// Mejorar el manejo del overlay: cerrar al hacer clic directamente en el overlay
+document.addEventListener('click', function(e) {
+    if (navMenu && navMenu.classList.contains('show-menu')) {
+        // Si el clic es en el body o en un elemento que no es parte del menú
+        const isMenuElement = navMenu.contains(e.target);
+        const isToggleButton = navToggle && (e.target === navToggle || navToggle.contains(e.target));
+        const isCloseButton = navClose && (e.target === navClose || navClose.contains(e.target));
+        
+        // Si no es ningún elemento del menú, cerrar
+        if (!isMenuElement && !isToggleButton && !isCloseButton) {
+            // Verificar que realmente estamos fuera del menú
+            const menuRect = navMenu.getBoundingClientRect();
+            const clickedOutside = (
+                e.clientX < menuRect.left ||
+                e.clientX > menuRect.right ||
+                e.clientY < menuRect.top ||
+                e.clientY > menuRect.bottom
+            );
+            
+            if (clickedOutside) {
+                closeMenu();
+            }
+        }
+    }
+});
+
 // Cerrar menú con ESC
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && navMenu && navMenu.classList.contains('show-menu')) {
         closeMenu();
     }
 });
 
-// Cerrar menú al redimensionar ventana (si pasa de móvil a desktop)
-window.addEventListener('resize', () => {
+// Cerrar menú al redimensionar ventana
+window.addEventListener('resize', function() {
     if (window.innerWidth > 992 && navMenu && navMenu.classList.contains('show-menu')) {
         closeMenu();
     }
@@ -148,15 +219,23 @@ window.addEventListener('scroll', scrollUpButton);
 // Scroll suave para todos los enlaces internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
         
-        if (target) {
+        // Evitar prevenir default en links vacíos o solo #
+        if (href === '#' || href === '') {
+            e.preventDefault();
+            return;
+        }
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        
+        if (target && header) {
             const headerHeight = header.offsetHeight;
             const targetPosition = target.offsetTop - headerHeight;
             
             window.scrollTo({
-                top: targetPosition,
+                top: Math.max(0, targetPosition),
                 behavior: 'smooth'
             });
         }
@@ -226,15 +305,26 @@ function isValidEmail(email) {
 
 /*==================== SISTEMA DE NOTIFICACIONES ====================*/
 function showNotification(message, type = 'info') {
+    // Sanitizar el mensaje para prevenir XSS
+    const sanitizedMessage = String(message).replace(/[<>]/g, '');
+    
     // Crear elemento de notificación
     const notification = document.createElement('div');
     notification.className = `notification notification--${type}`;
-    notification.innerHTML = `
-        <div class="notification__content">
-            <i class="notification__icon ${getNotificationIcon(type)}"></i>
-            <span class="notification__message">${message}</span>
-        </div>
-    `;
+    
+    const content = document.createElement('div');
+    content.className = 'notification__content';
+    
+    const icon = document.createElement('i');
+    icon.className = `notification__icon ${getNotificationIcon(type)}`;
+    
+    const messageSpan = document.createElement('span');
+    messageSpan.className = 'notification__message';
+    messageSpan.textContent = sanitizedMessage;
+    
+    content.appendChild(icon);
+    content.appendChild(messageSpan);
+    notification.appendChild(content);
     
     // Agregar estilos si no existen
     if (!document.getElementById('notification-styles')) {
@@ -617,8 +707,6 @@ if (isMobile) {
     
     // Mejorar scroll suave en iOS
     document.documentElement.style.webkitOverflowScrolling = 'touch';
-    
-    console.log('📱 Optimizaciones móviles activadas');
 }
 
 // Lazy loading de imágenes
@@ -687,10 +775,6 @@ if (prefersReducedMotion.matches) {
 /*==================== INICIALIZACIÓN ====================*/
 // Ejecutar funciones al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('✅ CR Digital - Sitio cargado correctamente');
-    console.log('📱 Dispositivo:', isMobile ? 'Móvil' : 'Desktop');
-    console.log('📐 Viewport:', window.innerWidth + 'x' + window.innerHeight);
-    
     // Agregar clase al body según el dispositivo
     if (isMobile) {
         document.body.classList.add('is-mobile');
