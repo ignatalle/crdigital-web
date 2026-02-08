@@ -1,0 +1,749 @@
+/*==================== LOGO ANIMATIONS - CR DIGITAL ====================*/
+/* Animaciones interactivas espectaculares para el logo */
+
+/*==================== LOGO EN NAVBAR ====================*/
+.nav__logo {
+  position: relative;
+  display: inline-block;
+  transition: all var(--transition-base);
+}
+
+.nav__logo-img {
+  height: 50px;
+  width: auto;
+  transition: all var(--transition-base);
+  filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+  position: relative;
+  z-index: 2;
+}
+
+/* Efecto hover en navbar */
+.nav__logo:hover .nav__logo-img {
+  transform: scale(1.1) rotate(2deg);
+  filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))
+          drop-shadow(0 0 40px rgba(212, 175, 55, 0.6));
+}
+
+/* Glow effect detrás del logo */
+.nav__logo::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 1;
+}
+
+.nav__logo:hover::before {
+  opacity: 1;
+  animation: glow-expand 1s ease-out;
+}
+
+@keyframes glow-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Pulso sutil constante */
+.nav__logo-img {
+  animation: logo-pulse 4s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5))
+            drop-shadow(0 0 30px rgba(212, 175, 55, 0.3));
+  }
+}
+
+/* Efecto de click/active */
+.nav__logo:active .nav__logo-img {
+  transform: scale(0.95);
+}
+
+/*==================== LOGO HERO (GRANDE) ====================*/
+/* Logo grande en el hero con efectos espectaculares */
+.hero__logo {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.hero__logo-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.6))
+          drop-shadow(0 0 60px rgba(212, 175, 55, 0.4));
+  animation: hero-logo-float 6s ease-in-out infinite;
+}
+
+@keyframes hero-logo-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+/* Partículas alrededor del logo */
+.hero__logo::before,
+.hero__logo::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.hero__logo::before {
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.3) 0%, transparent 70%);
+  animation: logo-glow-1 3s ease-in-out infinite;
+}
+
+.hero__logo::after {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  animation: logo-glow-2 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes logo-glow-1 {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+}
+
+@keyframes logo-glow-2 {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+}
+
+/*==================== LOGO INTERACTIVO CON MOUSE ====================*/
+/* El logo sigue el movimiento del mouse */
+.nav__logo-interactive {
+  transition: transform 0.3s ease-out;
+}
+
+/*==================== LOGO CON EFECTO 3D ====================*/
+.nav__logo-3d {
+  perspective: 1000px;
+}
+
+.nav__logo-3d .nav__logo-img {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-out;
+}
+
+.nav__logo-3d:hover .nav__logo-img {
+  transform: rotateY(15deg) rotateX(-5deg) scale(1.1);
+}
+
+/*==================== LOGO CON PARTÍCULAS ORBITANDO ====================*/
+.logo__orbit {
+  position: relative;
+  display: inline-block;
+}
+
+.logo__particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  opacity: 0.6;
+  animation: orbit 4s linear infinite;
+}
+
+.logo__particle:nth-child(2) { animation-delay: 1s; background: var(--secondary-color); }
+.logo__particle:nth-child(3) { animation-delay: 2s; }
+.logo__particle:nth-child(4) { animation-delay: 3s; background: var(--secondary-color); }
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
+/*==================== LOGO CON EFECTO GLITCH ====================*/
+.logo__glitch {
+  position: relative;
+}
+
+.logo__glitch::before,
+.logo__glitch::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  opacity: 0;
+}
+
+.logo__glitch:hover::before {
+  animation: glitch-1 0.3s infinite;
+  opacity: 0.8;
+  filter: hue-rotate(90deg);
+}
+
+.logo__glitch:hover::after {
+  animation: glitch-2 0.3s infinite;
+  opacity: 0.8;
+  filter: hue-rotate(-90deg);
+}
+
+@keyframes glitch-1 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translate(-2px, 2px);
+  }
+  66% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translate(2px, -2px);
+  }
+  66% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+/*==================== LOGO CON EFECTO NEON ====================*/
+.logo__neon {
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.5))
+            drop-shadow(0 0 10px rgba(0, 217, 255, 0.5))
+            drop-shadow(0 0 20px rgba(0, 217, 255, 0.5));
+  }
+  10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% {
+    filter: drop-shadow(0 0 2px rgba(0, 217, 255, 0.3))
+            drop-shadow(0 0 5px rgba(0, 217, 255, 0.3));
+  }
+  15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.8))
+            drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))
+            drop-shadow(0 0 40px rgba(0, 217, 255, 0.8))
+            drop-shadow(0 0 60px rgba(212, 175, 55, 0.6));
+  }
+}
+
+/*==================== LOGO CON EFECTO HOLOGRÁFICO ====================*/
+.logo__hologram {
+  position: relative;
+  animation: hologram-float 4s ease-in-out infinite;
+}
+
+@keyframes hologram-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.6));
+  }
+  25% {
+    transform: translateY(-5px) scale(1.02);
+    filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.8))
+            drop-shadow(0 0 50px rgba(212, 175, 55, 0.5));
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.8))
+            drop-shadow(0 0 60px rgba(0, 217, 255, 0.5));
+  }
+  75% {
+    transform: translateY(-5px) scale(1.02);
+    filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.8))
+            drop-shadow(0 0 50px rgba(212, 175, 55, 0.5));
+  }
+}
+
+/* Líneas holográficas */
+.logo__hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 217, 255, 0.1) 2px,
+    rgba(0, 217, 255, 0.1) 4px
+  );
+  animation: scan-lines 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan-lines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+/*==================== LOGO CON EFECTO ENERGÍA ====================*/
+.logo__energy {
+  position: relative;
+}
+
+.logo__energy::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(0, 217, 255, 0.4) 90deg,
+    transparent 180deg,
+    rgba(212, 175, 55, 0.4) 270deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: energy-spin 3s linear infinite;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.logo__energy:hover::after {
+  opacity: 1;
+}
+
+@keyframes energy-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+  }
+}
+
+/*==================== LOGO CON EFECTO MATRIX ====================*/
+.logo__matrix {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo__matrix::before {
+  content: '01010101010101010101';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--primary-color);
+  font-size: 8px;
+  font-family: monospace;
+  opacity: 0;
+  animation: matrix-rain 2s linear infinite;
+  pointer-events: none;
+}
+
+.logo__matrix:hover::before {
+  opacity: 0.3;
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/*==================== LOGO CON EFECTO CIRCUITO ====================*/
+.logo__circuit {
+  position: relative;
+}
+
+.circuit__line {
+  position: absolute;
+  background: var(--primary-color);
+  opacity: 0;
+  animation: circuit-flow 2s ease-in-out infinite;
+}
+
+.circuit__line--1 {
+  width: 2px;
+  height: 30px;
+  top: -30px;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.circuit__line--2 {
+  width: 30px;
+  height: 2px;
+  top: 50%;
+  right: -30px;
+  animation-delay: 0.5s;
+}
+
+.circuit__line--3 {
+  width: 2px;
+  height: 30px;
+  bottom: -30px;
+  right: 30%;
+  animation-delay: 1s;
+}
+
+.circuit__line--4 {
+  width: 30px;
+  height: 2px;
+  top: 50%;
+  left: -30px;
+  animation-delay: 1.5s;
+}
+
+@keyframes circuit-flow {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.circuit__node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-color);
+  animation: node-pulse 1.5s ease-in-out infinite;
+}
+
+.circuit__node--1 { top: -5px; left: 30%; animation-delay: 0s; }
+.circuit__node--2 { top: 50%; right: -5px; animation-delay: 0.5s; }
+.circuit__node--3 { bottom: -5px; right: 30%; animation-delay: 1s; }
+.circuit__node--4 { top: 50%; left: -5px; animation-delay: 1.5s; }
+
+@keyframes node-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+  50% {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px var(--primary-color),
+                0 0 40px var(--primary-color);
+  }
+}
+
+/*==================== LOGO CON EFECTO TECH SCAN ====================*/
+.logo__scan {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary-color) 50%, 
+    transparent 100%);
+  box-shadow: 0 0 10px var(--primary-color);
+  animation: scan-move 2s ease-in-out infinite;
+}
+
+@keyframes scan-move {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+/*==================== LOGO CON EFECTO CYBER ====================*/
+.logo__cyber {
+  position: relative;
+  animation: cyber-glitch 5s ease-in-out infinite;
+}
+
+@keyframes cyber-glitch {
+  0%, 90%, 100% {
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+  }
+  91%, 93%, 95%, 97%, 99% {
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 1))
+            drop-shadow(0 0 40px rgba(212, 175, 55, 0.8))
+            hue-rotate(20deg);
+    transform: translate(2px, -2px);
+  }
+  92%, 94%, 96%, 98% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 1))
+            drop-shadow(0 0 40px rgba(0, 217, 255, 0.8))
+            hue-rotate(-20deg);
+    transform: translate(-2px, 2px);
+  }
+}
+
+/*==================== LOGO CON ONDAS DE ENERGÍA ====================*/
+.logo__waves {
+  position: relative;
+}
+
+.wave__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: wave-expand 2s ease-out infinite;
+  opacity: 0;
+}
+
+.wave__ring:nth-child(2) { animation-delay: 0.5s; border-color: var(--secondary-color); }
+.wave__ring:nth-child(3) { animation-delay: 1s; }
+.wave__ring:nth-child(4) { animation-delay: 1.5s; border-color: var(--secondary-color); }
+
+@keyframes wave-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+/*==================== LOGO CON EFECTO LOADING ====================*/
+.logo__loading {
+  position: relative;
+}
+
+.loading__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-color);
+  border-right-color: var(--secondary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: loading-spin 1.5s linear infinite;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.logo__loading:hover .loading__circle {
+  opacity: 1;
+}
+
+@keyframes loading-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/*==================== LOGO CON EFECTO PARALLAX ====================*/
+.logo__parallax {
+  transition: transform 0.1s ease-out;
+}
+
+/* Este efecto se controla con JavaScript para seguir el mouse */
+
+/*==================== LOGO EN FOOTER ====================*/
+.footer__logo {
+  position: relative;
+  display: inline-block;
+}
+
+.footer__logo-img {
+  height: 50px;
+  width: auto;
+  transition: all var(--transition-base);
+  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.4));
+}
+
+.footer__logo:hover .footer__logo-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))
+          drop-shadow(0 0 35px rgba(212, 175, 55, 0.6));
+}
+
+/* Glow sutil en footer */
+.footer__logo::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.footer__logo:hover::before {
+  opacity: 1;
+}
+
+/*==================== RESPONSIVE ====================*/
+@media screen and (max-width: 768px) {
+  .nav__logo-img {
+    height: 40px;
+  }
+  
+  .hero__logo-img {
+    max-width: 280px;
+  }
+  
+  .logo__particle,
+  .circuit__line,
+  .circuit__node {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nav__logo-img {
+    height: 35px;
+  }
+  
+  .hero__logo-img {
+    max-width: 240px;
+  }
+}
+
+/*==================== PRELOAD ANIMATION ====================*/
+/* Animación de carga inicial del logo */
+.logo__preload {
+  animation: logo-reveal 1.5s ease-out forwards;
+}
+
+@keyframes logo-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+    filter: blur(10px);
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+/*==================== LOGO CLICK EFFECT ====================*/
+.logo__click-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.logo__click-effect.active {
+  animation: click-ripple 0.6s ease-out;
+}
+
+@keyframes click-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

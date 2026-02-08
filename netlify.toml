@@ -1,0 +1,166 @@
+# ==================== CONFIGURACIÓN DE NETLIFY ====================
+# Archivo de configuración para deployment en Netlify
+# CR Digital - https://crdigital.com
+
+# ==================== BUILD SETTINGS ====================
+[build]
+  # Directorio a publicar (raíz del proyecto)
+  publish = "."
+  
+  # Comando de build (no necesario para HTML estático)
+  command = ""
+
+# ==================== REDIRECTS Y REWRITES ====================
+# Redireccionar todas las rutas a index.html (útil si agregas SPA en el futuro)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+# Redireccionar www a dominio sin www (opcional)
+# [[redirects]]
+#   from = "https://www.tudominio.com/*"
+#   to = "https://tudominio.com/:splat"
+#   status = 301
+#   force = true
+
+# ==================== HEADERS ====================
+# Headers de seguridad y performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Seguridad
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Performance
+    X-DNS-Prefetch-Control = "on"
+    
+    # Content Security Policy (ajusta según necesites)
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com;
+      font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+      img-src 'self' data: https: http:;
+      connect-src 'self' https://wa.me https://api.whatsapp.com;
+      frame-src 'self' https://www.facebook.com https://www.instagram.com;
+    """
+
+# Cache para assets estáticos
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para imágenes
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ==================== PLUGINS ====================
+# Plugins de Netlify (opcionales)
+
+# Optimización automática de imágenes
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"
+
+# Lighthouse CI
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
+
+# ==================== CONTEXT-SPECIFIC SETTINGS ====================
+# Configuración para diferentes contextos (producción, preview, branch-deploy)
+
+# Producción
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+# Deploy previews (pull requests)
+[context.deploy-preview]
+  environment = { NODE_ENV = "development" }
+
+# Branch deploys
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
+
+# ==================== FORMS ====================
+# Si decides usar Netlify Forms en el futuro
+# [build.processing]
+#   skip_processing = false
+
+# [build.processing.css]
+#   bundle = true
+#   minify = true
+
+# [build.processing.js]
+#   bundle = true
+#   minify = true
+
+# [build.processing.html]
+#   pretty_urls = true
+
+# [build.processing.images]
+#   compress = true
+
+# ==================== FUNCIONES SERVERLESS (OPCIONAL) ====================
+# Si decides agregar funciones serverless de Netlify
+# [functions]
+#   directory = "functions/"
+
+# ==================== EDGE HANDLERS (OPCIONAL) ====================
+# Para funcionalidades avanzadas en el edge
+# [edge_handlers]
+#   directory = "edge-handlers/"
+
+# ==================== SPLIT TESTING (OPCIONAL) ====================
+# Para A/B testing
+# [[split_tests]]
+#   path = "/*"
+#   branches = ["main:50", "variant-a:50"]
+
+# ==================== NOTIFICACIONES ====================
+# Configurar notificaciones de deploy
+# [build.environment]
+#   SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+
+# ==================== NOTAS ====================
+# 1. Este archivo es opcional pero recomendado
+# 2. Netlify detectará automáticamente tu sitio HTML estático
+# 3. Puedes deployar sin este archivo y funcionará igual
+# 4. Los headers de seguridad son importantes para SEO y seguridad
+# 5. Ajusta la Content Security Policy según tus necesidades
+
+# ==================== RECURSOS ====================
+# Documentación: https://docs.netlify.com/configure-builds/file-based-configuration/
+# Headers: https://docs.netlify.com/routing/headers/
+# Redirects: https://docs.netlify.com/routing/redirects/

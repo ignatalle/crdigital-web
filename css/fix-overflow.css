@@ -1,0 +1,227 @@
+/*==========================================
+  FIX OVERFLOW HORIZONTAL - CR DIGITAL
+  Correcciones específicas para prevenir scroll horizontal
+==========================================*/
+
+/* NIVEL 1: HTML y BODY */
+html {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  position: relative;
+}
+
+/* NIVEL 2: TODOS LOS ELEMENTOS */
+* {
+  max-width: 100vw;
+}
+
+/* NIVEL 3: CONTENEDORES PRINCIPALES */
+.container,
+.section,
+.hero,
+.services,
+.process,
+.cta,
+.footer {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* NIVEL 4: ELEMENTOS DEL HERO */
+.hero {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+.hero__container {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hero__content {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.hero__title {
+  max-width: 100% !important;
+  width: 100% !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.hero__description {
+  max-width: 100% !important;
+  width: 100% !important;
+  word-wrap: break-word;
+}
+
+.hero__buttons {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.hero__stats {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.hero__proof {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* NIVEL 5: BOTONES */
+.button,
+.button--hero,
+.button--primary,
+.button--secondary {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  word-wrap: break-word;
+}
+
+/* NIVEL 6: ELEMENTOS DECORATIVOS */
+.hero__particles,
+.hero__visual,
+.floating-element,
+.decoration__circle,
+.visual__decoration {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+/* NIVEL 7: GRIDS Y FLEXBOX */
+.row,
+.grid,
+.services__grid,
+.process__timeline {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* NIVEL 8: IMÁGENES */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  box-sizing: border-box;
+}
+
+/* NIVEL 9: ELEMENTOS CON POSITION ABSOLUTE */
+[style*="position: absolute"],
+.position-absolute {
+  max-width: 100vw;
+}
+
+/* NIVEL 10: MOBILE ESPECÍFICO */
+@media screen and (max-width: 992px) {
+  /* Forzar overflow hidden en móvil */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Container con padding reducido */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  
+  /* Hero en móvil */
+  .hero {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .hero__content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Botones hero en móvil */
+  .button--hero {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ocultar elementos decorativos que pueden causar overflow */
+  .hero__particles,
+  .hero__visual,
+  .decoration__circle {
+    display: none !important;
+  }
+  
+  .floating-element {
+    max-width: 60px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Reforzar reglas en móvil */
+  * {
+    max-width: 100vw !important;
+  }
+  
+  .hero__title {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .hero__description {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .hero__buttons {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Móviles pequeños - máxima precaución */
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .hero__content {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .button--hero {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* NIVEL 11: DEBUG (Comentar después de arreglar) */
+/*
+* {
+  outline: 1px solid red;
+}
+
+*:hover {
+  outline: 2px solid blue;
+}
+*/
