@@ -25,6 +25,11 @@ function openMenu() {
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100vw';
+        document.body.style.height = '100vh';
+        // Ocultar botón hamburguesa
+        if (navToggle) {
+            navToggle.style.display = 'none';
+        }
     }
 }
 
@@ -36,6 +41,11 @@ function closeMenu() {
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
+        document.body.style.height = '';
+        // Mostrar botón hamburguesa
+        if (navToggle) {
+            navToggle.style.display = 'flex';
+        }
     }
 }
 
