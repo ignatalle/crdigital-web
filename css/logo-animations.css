@@ -672,8 +672,33 @@
 
 /*==================== RESPONSIVE ====================*/
 @media screen and (max-width: 768px) {
+  /* Simplificar logo en móvil */
+  .nav__logo {
+    max-width: 120px;
+    flex-shrink: 0;
+  }
+  
   .nav__logo-img {
-    height: 40px;
+    height: 35px !important;
+    max-width: 120px !important;
+    width: auto !important;
+    object-fit: contain;
+    object-position: left center;
+  }
+  
+  /* Desactivar animaciones complejas en móvil */
+  .nav__logo-img {
+    animation: none !important;
+  }
+  
+  .nav__logo:hover .nav__logo-img {
+    transform: scale(1.05) !important;
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5)) !important;
+  }
+  
+  /* Ocultar efectos decorativos */
+  .nav__logo::before {
+    display: none !important;
   }
   
   .hero__logo-img {
@@ -688,8 +713,15 @@
 }
 
 @media screen and (max-width: 576px) {
+  /* Logo aún más pequeño en móviles pequeños */
+  .nav__logo {
+    max-width: 100px;
+  }
+  
   .nav__logo-img {
-    height: 35px;
+    height: 30px !important;
+    max-width: 100px !important;
+    width: auto !important;
   }
   
   .hero__logo-img {
