@@ -290,14 +290,26 @@ textarea {
   height: var(--header-height);
 }
 
-.nav__logo-img {
+/* Eliminar barra vertical del logo - aplicar clip-path en todos los estados */
+.nav__logo-img,
+.nav__logo .nav__logo-img,
+.header .nav__logo-img,
+.nav a .nav__logo-img {
   height: 40px;
   width: auto;
   transition: transform var(--transition-base);
+  object-fit: contain !important;
+  object-position: left center !important;
+  clip-path: polygon(0 0, 55% 0, 55% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 55% 0, 55% 100%, 0 100%) !important;
 }
 
-.nav__logo-img:hover {
+.nav__logo-img:hover,
+.nav__logo:hover .nav__logo-img,
+.header .nav__logo:hover .nav__logo-img {
   transform: scale(1.05);
+  clip-path: polygon(0 0, 55% 0, 55% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 55% 0, 55% 100%, 0 100%) !important;
 }
 
 .nav__list {
@@ -380,6 +392,17 @@ textarea {
   overflow-x: hidden !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  position: relative;
+}
+
+/* Asegurar que el badge no cause overflow y se vea bien */
+.hero__content .hero__badge {
+  max-width: calc(100% - 2rem);
+  word-wrap: break-word;
+  white-space: normal;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Partículas de fondo */
@@ -1509,10 +1532,6 @@ textarea {
   overflow-x: hidden !important;
 }
 
-/* Cuando el menú está abierto, el header debe estar detrás */
-body.menu-open .header {
-  z-index: 999 !important; /* Detrás del menú (99999) */
-}
 
 .header .nav {
   max-width: 100vw !important;
@@ -1544,292 +1563,8 @@ body.menu-open .header {
   width: 100% !important;
 }
 
-/* Cuando el menú está abierto, el contenido debe estar MUY detrás */
-body.menu-open .main,
-body.menu-open .hero,
-body.menu-open .section,
-body.menu-open .services,
-body.menu-open .services__container,
-body.menu-open .services__grid,
-body.menu-open .hero__container,
-body.menu-open .container {
-  z-index: -1 !important; /* NEGATIVO para asegurar que esté detrás */
-  position: relative !important;
-}
 
-/* 3. EL MENÚ MÓVIL (OVERLAY) */
-@media screen and (max-width: 992px) {
-  /* Prevenir scroll horizontal en móvil */
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-    width: 100% !important;
-    position: relative !important;
-  }
-
-  /* MENÚ MÓVIL - ESTADO INICIAL: OCULTO FUERA DE LA PANTALLA */
-  .nav__menu {
-    position: fixed !important;
-    top: 0 !important;
-    right: -100% !important;
-    width: 85% !important;
-    max-width: 300px !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    background-color: #0A0E27 !important; /* Fondo sólido oscuro para tapar contenido */
-    background: #0A0E27 !important; /* Compatibilidad */
-    z-index: 99999 !important; /* Z-INDEX MÁXIMO ABSOLUTO: Por encima de TODO */
-    padding: 5rem 2rem 2rem !important;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.8) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: all !important;
-  }
-
-  /* MENÚ MÓVIL - ESTADO ABIERTO: VISIBLE EN PANTALLA */
-  /* FORZAR POSICIÓN CON !important PARA SOBRESCRIBIR ESTILOS EN LÍNEA */
-  .nav__menu.show-menu {
-    right: 0 !important; /* El !important es VITAL aquí */
-    opacity: 1 !important;
-    visibility: visible !important;
-    background-color: #0A0E27 !important; /* Fondo sólido oscuro obligatorio */
-    z-index: 99999 !important;
-    display: flex !important;
-    position: fixed !important; /* Asegurar posición fija */
-  }
-
-  /* FORZAR QUE TODOS LOS ELEMENTOS DE CONTENIDO ESTÉN DETRÁS DEL MENÚ */
-  body.menu-open .main,
-  body.menu-open .hero,
-  body.menu-open .section,
-  body.menu-open .services,
-  body.menu-open .services__container,
-  body.menu-open .services__grid,
-  body.menu-open .hero__container,
-  body.menu-open .container {
-    z-index: -1 !important; /* NEGATIVO para asegurar que esté detrás del menú */
-    position: relative !important;
-  }
-  
-  /* Asegurar que el contenido principal esté detrás cuando el menú está abierto */
-  body.menu-open main,
-  body.menu-open .main {
-    z-index: -1 !important;
-  }
-
-  /* Menú abierto - ya está definido arriba, esta regla es redundante pero la dejamos por seguridad */
-
-  /* Lista del menú */
-  .nav__list {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* Items del menú */
-  .nav__item {
-    display: block !important;
-    width: 100% !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* Links del menú */
-  .nav__link {
-    color: #fff !important;
-    font-size: 1.2rem !important;
-    display: block !important;
-    width: 100% !important;
-    padding: 0.75rem 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    text-decoration: none !important;
-  }
-
-  .nav__link:hover {
-    color: var(--primary-color) !important;
-    padding-left: 0.5rem !important;
-  }
-
-  /* Botón hamburguesa - SIEMPRE VISIBLE EN MÓVIL */
-  .nav__toggle {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-    background: rgba(0, 217, 255, 0.1) !important;
-    border: 1px solid rgba(0, 217, 255, 0.2) !important;
-    border-radius: 8px !important;
-    color: var(--primary-color) !important;
-    cursor: pointer !important;
-    z-index: 1001 !important; /* Por encima del header (1000) */
-    position: relative !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    font-size: 1.5rem !important;
-  }
-
-  .nav__toggle i {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    font-size: 1.5rem !important;
-  }
-
-  /* Asegurar que el botón hamburguesa sea clickeable */
-  .nav__toggle:active {
-    transform: scale(0.95) !important;
-  }
-
-  /* Ocultar hamburguesa cuando el menú está abierto */
-  body.menu-open .nav__toggle {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-
-  /* Botón cerrar - visible cuando el menú está abierto */
-  .nav__close {
-    display: none !important;
-  }
-
-  .nav__menu.show-menu .nav__close {
-    display: flex !important;
-    position: absolute !important;
-    top: 1.5rem !important;
-    right: 1.5rem !important;
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: rgba(0, 217, 255, 0.15) !important;
-    border: 2px solid rgba(0, 217, 255, 0.3) !important;
-    border-radius: 50% !important;
-    color: var(--primary-color) !important;
-    cursor: pointer !important;
-    z-index: 100000 !important; /* Por encima del menú (99999) */
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: all !important;
-  }
-
-  .nav__menu.show-menu .nav__close i {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* Overlay oscuro - Detrás del menú pero por encima del contenido */
-  .nav__menu.show-menu::before {
-    content: '' !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    width: 100dvw !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    z-index: 99998 !important; /* Detrás del menú (99999) pero por encima del contenido */
-    pointer-events: all !important;
-    cursor: pointer !important;
-    animation: fadeInOverlay 0.3s ease-in-out !important;
-  }
-  
-  @keyframes fadeInOverlay {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* Ocultar botón CTA en móvil */
-  .nav__buttons .button--primary {
-    display: none !important;
-  }
-
-  /* GARANTIZAR VISIBILIDAD DEL MENÚ CUANDO ESTÁ ABIERTO */
-  /* REGLA MAESTRA: FORZAR POSICIÓN Y FONDO SÓLIDO */
-  .nav__menu.show-menu {
-    right: 0 !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: all !important;
-    z-index: 99999 !important; /* Z-INDEX MÁXIMO ABSOLUTO: Por encima de TODO */
-    position: fixed !important; /* Asegurar posición fija */
-    background-color: #0A0E27 !important; /* Fondo sólido oscuro para tapar contenido */
-    background: #0A0E27 !important; /* Compatibilidad */
-  }
-  
-  /* Asegurar que el header también esté detrás del menú cuando está abierto */
-  body.menu-open .header {
-    z-index: 1000 !important; /* Detrás del menú */
-  }
-  
-  /* Asegurar que ningún elemento del contenido pueda estar por encima del menú */
-  body.menu-open *:not(.nav__menu):not(.nav__menu *):not(.nav__close) {
-    z-index: auto !important;
-  }
-  
-  /* Excepción: el botón cerrar debe estar por encima del menú */
-  body.menu-open .nav__close {
-    z-index: 100000 !important;
-  }
-
-  /* GARANTIZAR VISIBILIDAD DE TODOS LOS ELEMENTOS DEL MENÚ */
-  .nav__menu.show-menu .nav__list {
-    display: flex !important;
-    flex-direction: column !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 100% !important;
-    gap: 1.5rem !important;
-  }
-
-  .nav__menu.show-menu .nav__item {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 100% !important;
-  }
-
-  .nav__menu.show-menu .nav__link {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 100% !important;
-    color: #fff !important;
-    font-size: 1.2rem !important;
-  }
-
-  /* GARANTIZAR VISIBILIDAD DEL BOTÓN CERRAR */
-  .nav__menu.show-menu .nav__close {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
+/* 3. REGLAS DE MENÚ MÓVIL ELIMINADAS - Ver solución definitiva en index.html */
 
   /* PREVENIR OVERFLOW HORIZONTAL EN TODOS LOS ELEMENTOS */
   * {
@@ -1864,16 +1599,7 @@ body.menu-open .container {
    ======================================================= */
 /* Asegurar que el menú tenga z-index correcto también en desktop si se despliega */
 @media screen and (min-width: 993px) {
-  /* El menú en desktop normalmente está visible, pero si hay un menú hamburguesa también en desktop */
-  .nav__menu {
-    position: relative;
-    z-index: auto;
-  }
-  
-  /* Si el menú hamburguesa aparece en desktop, asegurar z-index correcto */
-  .nav__menu.show-menu {
-    z-index: 9999 !important;
-  }
+  /* REGLAS DE MENÚ DESKTOP ELIMINADAS - Ver solución definitiva en index.html */
   
   /* Header en desktop */
   .header {
@@ -1890,16 +1616,6 @@ body.menu-open .container {
     z-index: 1002 !important;
   }
   
-  /* Overlay en desktop (si existe) */
-  .nav__menu.show-menu::before {
-    z-index: 9998 !important;
-  }
-  
-  /* Asegurar que elementos flotantes estén detrás del menú cuando está abierto */
-  body.menu-open .whatsapp-float,
-  body.menu-open .scrollup {
-    z-index: 100 !important;
-  }
 }
 
 /* =======================================================
@@ -1922,12 +1638,5 @@ body.menu-open .container {
     height: auto !important;
   }
   
-  /* REGLA FINAL DE REFUERZO: MENÚ MÓVIL CON FONDO SÓLIDO Y POSICIÓN CORRECTA */
-  .nav__menu.show-menu {
-    right: 0 !important;
-    background-color: #0A0E27 !important;
-    background: #0A0E27 !important;
-    z-index: 99999 !important;
-    position: fixed !important;
-  }
+  /* REGLAS DE MENÚ MÓVIL ELIMINADAS - Ver solución definitiva en index.html */
 }

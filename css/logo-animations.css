@@ -15,6 +15,10 @@
   filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
   position: relative;
   z-index: 2;
+  object-fit: contain !important;
+  object-position: left center !important;
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
 }
 
 /* Efecto hover en navbar */
@@ -22,6 +26,8 @@
   transform: scale(1.1) rotate(2deg);
   filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8))
           drop-shadow(0 0 40px rgba(212, 175, 55, 0.6));
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
 }
 
 /* Glow effect detrás del logo */
@@ -62,6 +68,8 @@
 /* Pulso sutil constante */
 .nav__logo-img {
   animation: logo-pulse 4s ease-in-out infinite;
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
 }
 
 @keyframes logo-pulse {
@@ -77,6 +85,8 @@
 /* Efecto de click/active */
 .nav__logo:active .nav__logo-img {
   transform: scale(0.95);
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
 }
 
 /*==================== LOGO HERO (GRANDE) ====================*/
@@ -171,10 +181,14 @@
 .nav__logo-3d .nav__logo-img {
   transform-style: preserve-3d;
   transition: transform 0.6s ease-out;
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
 }
 
 .nav__logo-3d:hover .nav__logo-img {
   transform: rotateY(15deg) rotateX(-5deg) scale(1.1);
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+  -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
 }
 
 /*==================== LOGO CON PARTÍCULAS ORBITANDO ====================*/
@@ -722,6 +736,8 @@
     height: 30px !important;
     max-width: 100px !important;
     width: auto !important;
+    clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
+    -webkit-clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%) !important;
   }
   
   .hero__logo-img {

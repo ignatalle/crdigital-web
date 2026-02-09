@@ -7,27 +7,40 @@
 .hero__badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  background: rgba(0, 217, 255, 0.1);
-  border: 1px solid rgba(0, 217, 255, 0.3);
-  padding: 0.5rem 1rem;
+  gap: 0.75rem;
+  background: rgba(0, 217, 255, 0.15);
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius-full);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
   animation: badge-pulse 2s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 10;
 }
 
 .badge__dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: var(--primary-color);
   border-radius: 50%;
   animation: dot-pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
+  flex-shrink: 0;
 }
 
 .badge__text {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--text-color);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  display: inline-block;
 }
 
 @keyframes badge-pulse {
