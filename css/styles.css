@@ -1355,6 +1355,14 @@ textarea {
   .service__card--featured:hover {
     transform: translateY(-8px) scale(1.02);
   }
+
+  .pricing__card--featured {
+    transform: scale(1);
+  }
+
+  .pricing__card--featured:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
   
   .service__number {
     font-size: 3rem;
@@ -1448,6 +1456,68 @@ textarea {
   .service__price strong {
     font-size: var(--font-size-xl);
   }
+}
+
+/*==================== PRICING SECTION (ACADEMIA) ====================*/
+.pricing {
+  background: var(--bg-secondary);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.pricing__card {
+  background: var(--bg-card);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.pricing__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--primary-color);
+}
+
+.pricing__card--featured {
+  transform: scale(1.05);
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+}
+
+.pricing__badge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: var(--gradient-primary);
+  color: var(--bg-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.pricing__name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Utilidades para Academia */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: var(--spacing-lg);
 }
 
 /*==================== SCROLL BAR ====================*/
