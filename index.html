@@ -12,7 +12,7 @@
 <meta property="og:title" content="CR Digital — Apps y tableros a medida">
 <meta property="og:description" content="Para que manejes tu negocio sin hacer todo a mano y veas tus números claros desde el celular.">
 <meta property="og:url" content="https://crdigitalar.com/">
-<meta name="theme-color" content="#F9F9F7">
+<meta name="theme-color" content="#16181D">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,180 +24,218 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:#F9F9F7;color:#16181D;font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
-body::before{content:"";position:fixed;left:0;top:0;bottom:0;width:4px;background:#2563EB;z-index:10}
-a{color:#16181D}
-a:focus-visible,summary:focus-visible{outline:2px solid #2563EB;outline-offset:3px;border-radius:6px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-0.02em}
-h1,h2,h3,p{margin:0}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1D4ED8}
+a{color:inherit}
+a:focus-visible{outline:2px solid #60A5FA;outline-offset:3px;border-radius:8px}
+h1,h2,h3,p,figure{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-0.015em}
+.serif em{font-style:italic;color:#60A5FA}
+.light .serif em{color:#2563EB}
 .muted{color:#4A505C}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:12px;background:#16181D;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:16px}
-.btn:hover{background:#000}
-.btn-blue{background:#2563EB}.btn-blue:hover{background:#1D4ED8}
-.btn-line{background:transparent;color:#16181D;border:1px solid #CFCFC8}.btn-line:hover{background:#FFFFFF}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:14px;text-decoration:none;font-weight:600;font-size:16px;transition:transform .15s ease,background .15s ease}
+.btn:active{transform:scale(.98)}
+.btn-blue{background:#2563EB;color:#FFFFFF}.btn-blue:hover{background:#1D4ED8}
+.btn-ghost{color:#F9F9F7;border:1px solid rgba(255,255,255,.22)}.btn-ghost:hover{background:rgba(255,255,255,.06)}
+.btn-ink{background:#16181D;color:#FFFFFF}.btn-ink:hover{background:#000}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:4px;background:#34D399;box-shadow:0 0 0 4px rgba(52,211,153,.18)}
+.label{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#2563EB}
+
+/* Hero */
+.hero{background:#16181D;color:#F9F9F7;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 90% 70% at 70% 60%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 90% 70% at 70% 60%,#000 30%,transparent 75%)}
+.hero-in{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:28px;padding-bottom:64px}
+.hero-copy{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px}
+
+/* Phone */
+.phone-col{flex:1 1 320px;display:flex;justify-content:center}
+.phone{width:300px;border-radius:40px;background:#0B0C0F;padding:10px;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 40px 80px -20px rgba(37,99,235,.45),0 24px 48px -12px rgba(0,0,0,.6)}
+.screen{border-radius:31px;background:#F9F9F7;color:#16181D;overflow:hidden;display:flex;flex-direction:column}
+.kpi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.kpi div{background:#FFFFFF;border:1px solid #DCE6FB;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:1px}
+.kpi small{font-size:11px;color:#5B6170}
+.kpi b{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.kpi i{font-style:normal;font-size:11px;font-weight:600;color:#059669}
+.bars{display:flex;align-items:flex-end;gap:6px;height:72px}
+.bars span{flex:1 1 0;border-radius:4px 4px 2px 2px;background:#BFD3FB}
+.bars span.on{background:#2563EB}
+
+/* Secciones claras */
+.sec{padding:80px 0}
+.card{background:#FFFFFF;border:1px solid #E7E7E1;border-radius:20px}
+.ico{width:44px;height:44px;border-radius:12px;background:#EEF3FE;color:#2563EB;display:flex;align-items:center;justify-content:center;flex:0 0 44px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 .link{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:600;color:#1D4ED8;text-decoration:none}
 .link:hover{text-decoration:underline}
-.card{background:#FFFFFF;border:1px solid #E4E4DE;border-radius:16px}
-section{padding:72px 0}
-.sep{border-top:1px solid #E4E4DE}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.kpi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.kpi div{border:1px solid #2563EB;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px;background:#FFFFFF}
-.kpi small{font-size:12px;color:#5B6170}
-.kpi b{font-size:24px;font-weight:600;letter-spacing:-.02em}
-.kpi i{font-style:normal;font-size:12px;color:#1D4ED8}
-.bar{height:8px;border-radius:4px;background:#EEF3FE;overflow:hidden}
-.bar span{display:block;height:8px;border-radius:4px;background:#2563EB}
+.ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.chips li{font-size:13px;padding:5px 11px;border-radius:999px;background:#F1F1EC;color:#33373F}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.steps li{display:flex;gap:12px;align-items:flex-start}
-.steps b.n{flex:0 0 32px;height:32px;border-radius:16px;background:#16181D;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px}
+.chips li{font-size:13px;padding:6px 12px;border-radius:999px;background:#EEF3FE;color:#1E40AF;font-weight:500}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.steps li{display:flex;flex-direction:column;gap:6px;padding:20px;background:#FFFFFF;border:1px solid #E7E7E1;border-radius:18px}
+.steps .n{font-family:'Instrument Serif',Georgia,serif;font-size:34px;line-height:1;color:#2563EB}
+
 @media (max-width:700px){
- section{padding:56px 0}
- .hero h1{font-size:44px !important}
- h2.serif{font-size:34px !important}
- .btn{width:100%}
+ .hero h1{font-size:46px !important}
+ .sec h2{font-size:36px !important}
+ .sec{padding:60px 0}
+ .hero-copy .btn{width:100%}
+ #contacto .btn{width:100%}
+ .tag{display:none}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
 <body>
 
-<header class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 18px; padding-bottom: 18px">
-<a href="/" style="display: flex; align-items: baseline; gap: 8px; text-decoration: none">
-<span class="serif" style="font-size: 24px">CR Digital</span>
-<span style="font-size: 12px; color: #5B6170">Soluciones a medida</span>
+<!-- ============ HERO ============ -->
+<div class="hero">
+<header class="wrap" style="position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 18px; padding-bottom: 18px">
+<a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none" aria-label="CR Digital, inicio">
+<svg aria-hidden="true" width="40" height="40" viewBox="0 0 48 48"><rect x="1" y="1" width="46" height="46" rx="12" fill="#F9F9F7"></rect><text x="24" y="29.5" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-weight="700" font-size="19" letter-spacing="-0.5" fill="#16181D">CR</text><rect x="14" y="34" width="20" height="3.5" rx="1.75" fill="#2563EB"></rect></svg>
+<span style="display: flex; flex-direction: column; line-height: 1.1">
+<span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em">CR Digital</span>
+<span class="tag" style="font-size: 12px; color: #9CA3AF; padding-top: 2px">Soluciones digitales a medida</span>
+</span>
 </a>
-<a class="link" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20vi%20tu%20web%20y%20quiero%20consultarte">Escribime</a>
+<a class="pill" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20vi%20tu%20web%20y%20quiero%20consultarte" style="text-decoration: none; border: 1px solid rgba(255,255,255,.22); padding: 10px 16px; font-weight: 600; min-height: 44px">Escribime</a>
 </header>
 
-<main>
-
-<!-- 1. Qué hago -->
-<section class="hero" style="padding-top: 40px">
-<div class="wrap" style="display: flex; flex-direction: column; gap: 22px; max-width: 820px; margin-left: 0">
-<span class="eyebrow">Software a medida · Argentina · 100 % remoto</span>
-<h1 class="serif" style="font-size: 64px; line-height: 1.02">Apps y tableros a medida para que manejes tu negocio sin hacer todo a mano.</h1>
-<p class="muted" style="font-size: 18px; max-width: 620px">Si hoy usás cuaderno, Excel, WhatsApp o un sistema que no te muestra lo que necesitás, empezamos desde ahí.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px">
+<div class="wrap hero-in">
+<div class="hero-copy">
+<span class="pill" style="align-self: flex-start; background: rgba(255,255,255,.07); color: #D1D5DB; border: 1px solid rgba(255,255,255,.1)"><span class="dot" aria-hidden="true"></span>Software a medida · 100 % remoto</span>
+<h1 class="serif" style="font-size: 68px; line-height: 1.0; color: #FFFFFF">Apps y tableros a medida para que manejes tu negocio <em>sin hacer todo a mano.</em></h1>
+<p style="font-size: 18px; color: #B4B9C2; max-width: 560px">Si hoy usás cuaderno, Excel, WhatsApp o un sistema que no te muestra lo que necesitás, empezamos desde ahí.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
 <a class="btn btn-blue" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20vi%20tu%20web%20y%20quiero%20contarte%20sobre%20mi%20negocio">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>
 Contame tu caso por WhatsApp</a>
-<a class="btn btn-line" href="#ejemplo">Ver un ejemplo real</a>
+<a class="btn btn-ghost" href="#ejemplo">Ver un caso real</a>
 </div>
-<div style="display: flex; align-items: center; gap: 12px; padding-top: 8px">
-<span aria-hidden="true" style="width: 44px; height: 44px; flex: 0 0 44px; border-radius: 22px; background: #E9E9E4; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #4A505C">IC</span>
-<span style="font-size: 14px; line-height: 1.4" class="muted"><b style="color: #16181D">Ignacio Casado</b>, fundador. Hablás directo conmigo, de la primera charla al soporte.</span>
+<div style="display: flex; align-items: center; gap: 12px; padding-top: 6px">
+<span aria-hidden="true" style="width: 44px; height: 44px; flex: 0 0 44px; border-radius: 22px; background: #2A2E37; border: 1px solid rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; color: #E5E7EB">IC</span>
+<span style="font-size: 14px; line-height: 1.4; color: #B4B9C2"><b style="color: #FFFFFF">Ignacio Casado</b>, fundador. Hablás directo conmigo, de la primera charla al soporte.</span>
 </div>
-</div>
-</section>
-
-<!-- 2. Ejemplo real -->
-<section id="ejemplo" class="sep">
-<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 36px; align-items: center">
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<span class="eyebrow">Caso real · Estaciones de servicio</span>
-<h2 class="serif" style="font-size: 44px; line-height: 1.05">De la planilla de cada noche a los números en el celular.</h2>
-<p class="muted" style="font-size: 17px"><b style="color: #16181D">Antes:</b> el dueño armaba el control de ventas a mano en Excel.</p>
-<p class="muted" style="font-size: 17px"><b style="color: #16181D">Ahora:</b> sube el archivo de su sistema cada noche y él y sus socios ven ventas, comparativos, stock y alertas desde el celular, verificado contra sus propios registros.</p>
-<ul class="chips"><li>App instalable</li><li>Usuarios y permisos</li><li>Alertas</li><li>Respaldo diario</li></ul>
 </div>
 
-<figure class="card" style="flex: 1 1 340px; max-width: 420px; margin: 0; padding: 16px; display: flex; flex-direction: column; gap: 12px" aria-label="Ejemplo de tablero con datos ficticios">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
-<span style="font-weight: 600">Tablero comercial</span>
-<span style="font-size: 11px; font-weight: 600; color: #1E40AF; background: #EEF3FE; padding: 4px 8px; border-radius: 999px">Datos de ejemplo</span>
+<div class="phone-col">
+<figure class="phone" aria-label="Ejemplo de tablero en el celular, con datos ficticios">
+<div class="screen">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 16px 6px">
+<span style="font-size: 12px; color: #5B6170">Tablero comercial</span>
+<span style="font-size: 10px; font-weight: 600; color: #1E40AF; background: #EEF3FE; padding: 3px 8px; border-radius: 999px">Datos de ejemplo</span>
 </div>
+<div style="padding: 0 16px 10px">
+<div class="serif" style="font-size: 26px; line-height: 1.1">Hoy, de un vistazo</div>
+</div>
+<div style="padding: 0 12px 12px; display: flex; flex-direction: column; gap: 10px">
 <div class="kpi">
-<div><small>Vendido ayer</small><b>$ 4,8 M</b><i>+6 % vs. mes anterior</i></div>
-<div><small>Litros ayer</small><b>3.920</b><i>+4 % vs. mes anterior</i></div>
-<div><small>Proyección del mes</small><b>$ 142 M</b></div>
-<div><small>Alertas</small><b>2</b><i style="color: #92400E">Revisar contador</i></div>
+<div><small>Vendido ayer</small><b>$ 4,8 M</b><i>▲ 6 % vs. mes ant.</i></div>
+<div><small>Litros ayer</small><b>3.920</b><i>▲ 4 % vs. mes ant.</i></div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
-<div style="display: flex; justify-content: space-between; font-size: 13px"><span>Nafta</span><span>58 %</span></div>
-<div class="bar"><span style="width: 58%"></span></div>
-<div style="display: flex; justify-content: space-between; font-size: 13px"><span>Diésel</span><span>34 %</span></div>
-<div class="bar"><span style="width: 34%"></span></div>
-<div style="display: flex; justify-content: space-between; font-size: 13px"><span>Otros</span><span>8 %</span></div>
-<div class="bar"><span style="width: 8%"></span></div>
+<div style="background: #FFFFFF; border: 1px solid #DCE6FB; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #5B6170"><span>Ventas por día</span><span>Últimos 10 días</span></div>
+<div class="bars" aria-hidden="true"><span style="height: 52%"></span><span style="height: 64%"></span><span style="height: 48%"></span><span style="height: 70%"></span><span style="height: 61%"></span><span style="height: 82%"></span><span style="height: 58%"></span><span style="height: 74%"></span><span style="height: 66%"></span><span class="on" style="height: 90%"></span></div>
 </div>
-<figcaption style="font-size: 12px; color: #5B6170">Vista de ejemplo. Los datos del cliente son privados.</figcaption>
+<div style="display: flex; align-items: center; gap: 10px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: 10px 12px">
+<span aria-hidden="true" style="width: 26px; height: 26px; flex: 0 0 26px; border-radius: 8px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">!</span>
+<span style="font-size: 12px; line-height: 1.3; color: #78350F"><b>2 alertas:</b> revisar un contador del día</span>
+</div>
+</div>
+</div>
 </figure>
 </div>
+</div>
+</div>
+
+<main class="light">
+
+<!-- ============ CASO REAL ============ -->
+<section id="ejemplo" class="sec">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 26px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
+<span class="label">Caso real · Estaciones de servicio</span>
+<h2 class="serif" style="font-size: 50px; line-height: 1.02">De la planilla de cada noche a <em>los números en el celular.</em></h2>
+</div>
+<div class="ba">
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 8px; background: #F1F1EC; border-color: #E4E4DE">
+<span style="font-size: 13px; font-weight: 600; color: #5B6170">Antes</span>
+<p style="font-size: 17px">El dueño armaba el control de ventas a mano en Excel, todas las noches.</p>
+</div>
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #2563EB">
+<span style="font-size: 13px; font-weight: 600; color: #2563EB">Ahora</span>
+<p style="font-size: 17px">Sube el archivo de su sistema y él y sus socios ven ventas, comparativos, stock y alertas desde el celular, verificado contra sus propios registros.</p>
+</div>
+</div>
+<ul class="chips"><li>App instalable</li><li>Usuarios y permisos</li><li>Alertas</li><li>Respaldo diario</li></ul>
+</div>
 </section>
 
-<!-- 3. Qué hago, según dónde estás -->
-<section class="sep">
+<!-- ============ QUÉ HAGO ============ -->
+<section class="sec" style="background: #FFFFFF; border-top: 1px solid #ECECE6; border-bottom: 1px solid #ECECE6">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px">
-<span class="eyebrow">Qué hago</span>
-<h2 class="serif" style="font-size: 44px; line-height: 1.05">¿Dónde está hoy tu negocio?</h2>
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px">
+<span class="label">Qué hago</span>
+<h2 class="serif" style="font-size: 50px; line-height: 1.02">¿Dónde está hoy <em>tu negocio?</em></h2>
 </div>
 <div class="grid3">
-<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<h3 style="font-size: 20px; font-weight: 600">Tenés datos, pero no los ves claros</h3>
+<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 12px; background: #F9F9F7">
+<span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></span>
+<h3 style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Tenés datos, pero no los ves claros</h3>
 <p class="muted">Un tablero que se arma con lo que ya exporta tu sistema o con tus planillas. Ventas, comparativos y alertas al día.</p>
-<p style="font-size: 14px; color: #5B6170">Ej.: el caso de las estaciones.</p>
 <a class="link" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20tengo%20datos%20o%20un%20sistema%20y%20quiero%20ver%20mis%20n%C3%BAmeros%20claros">Consultar por un tablero →</a>
 </article>
-<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<h3 style="font-size: 20px; font-weight: 600">Lo manejás todo a mano</h3>
+<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 12px; background: #F9F9F7">
+<span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"></rect><path d="M10 7h4"></path><path d="M10 11h4"></path><path d="M10 15h2"></path></svg></span>
+<h3 style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Lo manejás todo a mano</h3>
 <p class="muted">Una app simple para pedidos, clientes, stock o caja, que usás desde el celular. Lo repetitivo pasa a hacerse solo.</p>
-<p style="font-size: 14px; color: #5B6170">Ej.: una marca de ropa que maneja pedidos con seña y la caja del día en su app.</p>
 <a class="link" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20hoy%20manejo%20todo%20a%20mano%20y%20quiero%20ordenarlo">Consultar por una app →</a>
 </article>
-<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<h3 style="font-size: 20px; font-weight: 600">Estás arrancando</h3>
+<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 12px; background: #F9F9F7">
+<span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"></path><path d="M5 13v7h14v-7"></path></svg></span>
+<h3 style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Estás arrancando</h3>
 <p class="muted">Tu web o tu tienda online, bien configurada desde el primer día. Cuando crezcas, sumamos la gestión.</p>
-<p style="font-size: 14px; color: #5B6170">Ej.: la tienda online de esa misma marca.</p>
 <a class="link" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20estoy%20arrancando%20y%20quiero%20mi%20web%20o%20tienda%20online">Consultar por una web o tienda →</a>
 </article>
 </div>
 </div>
 </section>
 
-<!-- 4. Cómo trabajo -->
-<section class="sep">
+<!-- ============ CÓMO TRABAJO ============ -->
+<section class="sec">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<span class="eyebrow">Cómo trabajo</span>
-<h2 class="serif" style="font-size: 44px; line-height: 1.05">Primero te digo si lo necesitás. A veces la respuesta es una planilla.</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
+<span class="label">Cómo trabajo</span>
+<h2 class="serif" style="font-size: 50px; line-height: 1.02">Primero te digo si lo necesitás. <em>A veces la respuesta es una planilla.</em></h2>
 <p class="muted" style="font-size: 17px">No te vendo lo más complejo: te propongo lo que tiene sentido para tu negocio hoy.</p>
 </div>
 <ol class="steps">
-<li><b class="n">1</b><span><b>Una charla</b><br><span class="muted">Me contás cómo trabajás hoy y qué te frena.</span></span></li>
-<li><b class="n">2</b><span><b>Propuesta por escrito</b><br><span class="muted">Qué se hace, en cuánto tiempo y cuánto cuesta. Cerrada.</span></span></li>
-<li><b class="n">3</b><span><b>Lo probás con tus datos</b><br><span class="muted">Antes de usarlo, verificamos que los números coincidan.</span></span></li>
-<li><b class="n">4</b><span><b>Te acompaño</b><br><span class="muted">Soporte, respaldo diario y ajustes. Tus datos son tuyos.</span></span></li>
+<li><span class="n">01</span><b>Una charla</b><span class="muted">Me contás cómo trabajás hoy y qué te frena.</span></li>
+<li><span class="n">02</span><b>Propuesta por escrito</b><span class="muted">Qué se hace, en cuánto tiempo y cuánto cuesta. Cerrada.</span></li>
+<li><span class="n">03</span><b>Lo probás con tus datos</b><span class="muted">Antes de usarlo, verificamos que los números coincidan.</span></li>
+<li><span class="n">04</span><b>Te acompaño</b><span class="muted">Soporte, respaldo diario y ajustes. Tus datos son tuyos.</span></li>
 </ol>
-</div>
-</section>
-
-<!-- 5. Contacto -->
-<section id="contacto" style="background: #16181D; color: #F9F9F7">
-<div class="wrap" style="display: flex; flex-direction: column; gap: 18px; max-width: 760px; margin-left: 0">
-<h2 class="serif" style="font-size: 48px; line-height: 1.04; color: #FFFFFF">¿Qué te gustaría dejar de hacer a mano?</h2>
-<p style="font-size: 17px; color: #C9CCD2">Contame tu caso en un mensaje. Te respondo yo, dentro de las 48 h hábiles.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a class="btn btn-blue" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20vi%20tu%20web%20y%20quiero%20contarte%20sobre%20mi%20negocio">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>
-Escribime por WhatsApp</a>
-<a class="btn" href="mailto:hola@crdigitalar.com" style="background: transparent; border: 1px solid #4A505C">hola@crdigitalar.com</a>
-</div>
 </div>
 </section>
 
 </main>
 
-<footer style="background: #16181D; border-top: 1px solid #2A2D34">
-<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 22px; padding-bottom: 22px; font-size: 13px; color: #9CA1AB">
+<!-- ============ CONTACTO ============ -->
+<section id="contacto" class="hero">
+<div class="wrap" style="position: relative; display: flex; flex-direction: column; gap: 18px; padding-top: 72px; padding-bottom: 64px">
+<h2 class="serif" style="font-size: 52px; line-height: 1.02; color: #FFFFFF; max-width: 760px">¿Qué te gustaría <em>dejar de hacer a mano?</em></h2>
+<p style="font-size: 17px; color: #B4B9C2">Contame tu caso en un mensaje. Te respondo yo, dentro de las 48 h hábiles.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a class="btn btn-blue" href="https://wa.me/5492622650502?text=Hola%20Ignacio%2C%20vi%20tu%20web%20y%20quiero%20contarte%20sobre%20mi%20negocio">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>
+Escribime por WhatsApp</a>
+<a class="btn btn-ghost" href="mailto:hola@crdigitalar.com">hola@crdigitalar.com</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-size: 13px; color: #8B919C">
 <span>CR Digital · Ignacio Casado · Argentina</span>
 <span>© 2026</span>
 </div>
-</footer>
+</div>
+</section>
 
 </body>
 </html>

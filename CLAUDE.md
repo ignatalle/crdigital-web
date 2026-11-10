@@ -10,7 +10,7 @@ Repositorio PÚBLICO. Nunca poner acá cobros, precios internos, datos de client
 
 ## Versión actual (10/11/2026, noche) — "tarjeta de presentación"
 Objetivo: Igna manda el link a quien le pregunta a qué se dedica. En 10 segundos, desde el celular, se entiende qué hace, se ve un ejemplo real y hay un botón de WhatsApp.
-- Dirección visual "Señal": fondo `#F9F9F7`, Instrument Sans + Instrument Serif, acento azul `#2563EB`, barra de 4 px a la izquierda.
+- Dirección visual "Señal" con contraste: cabecera y contacto oscuros (`#16181D`, cuadrícula sutil), cuerpo claro `#F9F9F7`, Instrument Sans + Instrument Serif (itálica azul para remarcar), acento `#2563EB`. Logo: cuadrado claro con "CR" y barra azul. Arriba, un celular con el tablero de ejemplo.
 - Voz en primera persona (Igna), sin fingir equipo. Sin precios. Sin mencionar el Ejército.
 - 5 bloques: qué hago + WhatsApp + fundador · caso real (estaciones) con mockup · 3 situaciones (datos / a mano / arrancando) · cómo trabajo ("primero te digo si lo necesitás") · contacto.
 - Pendiente: foto de Igna (hoy hay un círculo con "IC"). Living Studio (IA conversacional) quedó para más adelante; prototipo en Claude Design.
