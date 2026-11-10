@@ -1,873 +1,245 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#0A0E27">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="CR Digital - Agencia de Marketing Digital especializada en soluciones con IA, páginas web, inventarios por WhatsApp y estrategias digitales para hacer crecer tu negocio.">
-    <meta name="keywords" content="marketing digital, inteligencia artificial, páginas web, chatbots, inventarios WhatsApp, automatización, CR Digital">
-    <meta name="author" content="CR Digital">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://crdigital.com/">
-    <meta property="og:title" content="CR Digital - Transforma tu Negocio con Inteligencia Artificial">
-    <meta property="og:description" content="Soluciones digitales que hacen crecer tu empresa. IA, Web, Marketing Digital.">
-    <meta property="og:image" content="./assets/images/Logo.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://crdigital.com/">
-    <meta property="twitter:title" content="CR Digital - Transforma tu Negocio con Inteligencia Artificial">
-    <meta property="twitter:description" content="Soluciones digitales que hacen crecer tu empresa. IA, Web, Marketing Digital.">
-    <meta property="twitter:image" content="./assets/images/Logo.png">
-    
-    <title>CR Digital - Marketing Digital & Soluciones con IA</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/images/Logo.png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS - Estilos Específicos (Cargar PRIMERO) -->
-    <link rel="stylesheet" href="./css/navbar-responsive.css">
-    <link rel="stylesheet" href="./css/wow-styles.css">
-    <link rel="stylesheet" href="./css/logo-animations.css">
-    <link rel="stylesheet" href="./css/services-mobile.css">
-    <link rel="stylesheet" href="./css/mobile-optimizations.css">
-    
-    <!-- Estilo Maestro (Cargar AL FINAL para sobrescribir reglas anteriores) -->
-    <link rel="stylesheet" href="./css/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CR Digital — Software a medida para negocios</title>
+<meta name="description" content="Estudio de software a medida en Argentina. Apps web, tableros de gestión, automatizaciones y diagnóstico de datos para negocios que se cansaron del Excel. Trabajo 100 % remoto.">
+<link rel="canonical" href="https://crdigitalar.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="CR Digital">
+<meta property="og:title" content="CR Digital — Software a medida para negocios">
+<meta property="og:description" content="Apps web, tableros y automatizaciones hechas para tu forma de trabajar. Argentina, 100 % remoto.">
+<meta property="og:url" content="https://crdigitalar.com/">
+<meta name="theme-color" content="#0B0F14">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"CR Digital","url":"https://crdigitalar.com/","email":"hola@crdigitalar.com","areaServed":"AR","description":"Estudio de software a medida: apps web, tableros de gestión, automatizaciones y diagnóstico de datos."}
+</script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F4F2EE;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0B0F14}a:hover{color:#C23E0A}
+a:focus-visible{outline:3px solid #FF5B1F;outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:'Space Grotesk',Inter,system-ui,sans-serif;letter-spacing:-0.025em}
+@media (max-width:700px){
+ nav a:not(.cta){display:none !important}
+ h1{font-size:42px !important}
+ h2{font-size:32px !important}
+ #contacto h2{font-size:36px !important}
+ section{padding-top:64px !important}
+ #trabajo > div,#contacto > div{padding-left:22px !important;padding-right:22px !important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-    
-    <!-- ==================== HEADER / NAVBAR ==================== -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#home" class="nav__logo" aria-label="Ir al inicio">
-                <img src="./assets/images/Logo.png" alt="CR Digital Logo" class="nav__logo-img">
-            </a>
+<div style="font-family: Inter, system-ui, sans-serif; color: #0B0F14; background: #F4F2EE; min-height: 100vh">
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link" aria-current="page">Inicio</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#agencia" class="nav__link">Agencia</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#sistemas" class="nav__link">Mis Sistemas</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#academia" class="nav__link">Academia</a>
-                    </li>
-                </ul>
-            </div>
+<div style="background: #0B0F14; color: #F4F2EE">
+<header>
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#inicio" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #F4F2EE">
+<span aria-hidden="true" style="width: 34px; height: 34px; border-radius: 8px; background: #FF5B1F; display: flex; align-items: center; justify-content: center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B0F14" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5"></path><path d="M15 7l5 5-5 5"></path></svg>
+</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em">CR Digital</span>
+</a>
+<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px; font-size: 15px">
+<a href="#servicios" style="color: #C9CDD3; text-decoration: none">Servicios</a>
+<a href="#como" style="color: #C9CDD3; text-decoration: none">Cómo trabajamos</a>
+<a href="#trabajo" style="color: #C9CDD3; text-decoration: none">Trabajo reciente</a>
+<a class="cta" href="#contacto" style="background: #F4F2EE; color: #0B0F14; text-decoration: none; padding: 11px 18px; border-radius: 10px; font-weight: 600">Hablemos</a>
+</nav>
+</div>
+</header>
 
-            <div class="nav__buttons">
-                <a href="#contact" class="button button--primary">
-                    Cotiza Gratis
-                </a>
-            </div>
-        </nav>
-    </header>
+<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 26px">
+<span style="align-self: flex-start; border: 1px solid #2B323C; color: #C9CDD3; font-size: 14px; padding: 7px 14px; border-radius: 999px">Estudio de software · Argentina · 100 % remoto</span>
+<h1 style="margin: 0; font-size: 66px; line-height: 1.0; font-weight: 700; color: #FFFFFF">Software a medida para negocios que se cansaron del Excel.</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #B5BBC4; max-width: 560px">Diseñamos y desarrollamos apps, tableros y automatizaciones hechas para tu forma de trabajar. Sin plantillas genéricas, sin planillas que se arman a mano.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px">
+<a href="#contacto" style="background: #FF5B1F; color: #0B0F14; text-decoration: none; padding: 16px 24px; border-radius: 12px; font-weight: 600; font-size: 16px">Contanos qué necesitás</a>
+<a href="#servicios" style="color: #F4F2EE; text-decoration: none; padding: 16px 24px; border-radius: 12px; font-weight: 500; font-size: 16px; border: 1px solid #3A424D">Ver servicios</a>
+</div>
+</div>
 
-    <!-- ==================== MAIN ==================== -->
-    <main class="main">
-        
-        <!-- ==================== HERO SECTION ==================== -->
-        <section class="hero section" id="home">
-            <!-- Partículas de fondo animadas -->
-            <div class="hero__particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
+<div aria-hidden="true" style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="background: #151B23; border: 1px solid #252D38; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #8B939E"><span>Proceso automatizado</span><span>cada noche · 22:00</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px">
+<span style="background: #1F2730; border-radius: 9px; padding: 9px 12px; color: #E6E8EB">Archivo del sistema</span>
+<span style="color: #FF5B1F">→</span>
+<span style="background: #1F2730; border-radius: 9px; padding: 9px 12px; color: #E6E8EB">Validación</span>
+<span style="color: #FF5B1F">→</span>
+<span style="background: #1F2730; border-radius: 9px; padding: 9px 12px; color: #E6E8EB">Tablero</span>
+<span style="color: #FF5B1F">→</span>
+<span style="background: #FF5B1F; border-radius: 9px; padding: 9px 12px; color: #0B0F14; font-weight: 600">Aviso</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="background: #151B23; border: 1px solid #252D38; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; color: #8B939E">Ventas del mes</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600; color: #FFFFFF">+3,1 %</span>
+<div style="display: flex; align-items: flex-end; gap: 5px; height: 64px; padding-top: 6px">
+<div style="flex: 1; height: 45%; background: #2B3440; border-radius: 3px"></div>
+<div style="flex: 1; height: 60%; background: #2B3440; border-radius: 3px"></div>
+<div style="flex: 1; height: 52%; background: #2B3440; border-radius: 3px"></div>
+<div style="flex: 1; height: 74%; background: #2B3440; border-radius: 3px"></div>
+<div style="flex: 1; height: 68%; background: #2B3440; border-radius: 3px"></div>
+<div style="flex: 1; height: 92%; background: #FF5B1F; border-radius: 3px"></div>
+</div>
+</div>
+<div style="background: #151B23; border: 1px solid #252D38; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; color: #8B939E">Equipo</span>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #E6E8EB"><span>Dueño</span><span style="color: #8B939E">todo</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #E6E8EB"><span>Socio</span><span style="color: #8B939E">tablero</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #E6E8EB"><span>Encargado</span><span style="color: #8B939E">carga</span></div>
+</div>
+</div>
+<div style="background: #151B23; border: 1px solid #252D38; border-radius: 18px; padding: 14px 18px; display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #E6E8EB">
+<span>Se instala en el celular como una app</span><span style="color: #FF5B1F">●</span>
+</div>
+</div>
+</section>
+</div>
 
-            <div class="hero__container container">
-                <div class="hero__content" data-aos="zoom-in">
-                    <!-- Badge superior -->
-                    <div class="hero__badge">
-                        <span class="badge__dot"></span>
-                        <span class="badge__text">Sistemas, Automatización y Libertad Operativa</span>
-                    </div>
+<section id="servicios" aria-labelledby="servicios-t" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+<span style="font-size: 14px; font-weight: 600; color: #C23E0A; text-transform: uppercase; letter-spacing: 0.08em">Servicios</span>
+<h2 id="servicios-t" style="margin: 0; font-size: 46px; line-height: 1.06">Lo que construimos</h2>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A505A; max-width: 420px">Cada proyecto arranca de cómo trabajás hoy. Tomamos tus procesos y tus datos, y los convertimos en herramientas que se usan todos los días.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px">
+<article style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #C23E0A">01</span>
+<h3 style="margin: 0; font-size: 24px">Apps web a medida</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Sistemas internos para tu negocio, con usuarios y permisos. Funcionan en la compu y se instalan en el celular como una app.</p>
+</article>
+<article style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #C23E0A">02</span>
+<h3 style="margin: 0; font-size: 24px">Tableros y reportes</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Tus números al día, con proyecciones y comparativos. Se alimentan de lo que ya exporta tu sistema o de tus planillas.</p>
+</article>
+<article style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #C23E0A">03</span>
+<h3 style="margin: 0; font-size: 24px">Automatizaciones</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Lo que hoy alguien hace a mano —pasar datos, controlar, avisar, mandar mails— pasa a hacerse solo y sin errores de tipeo.</p>
+</article>
+<article style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #C23E0A">04</span>
+<h3 style="margin: 0; font-size: 24px">Diagnóstico de datos</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Revisamos lo que generan tus sistemas y te mostramos lo que no cierra: diferencias, faltantes y oportunidades, con los números en la mano.</p>
+</article>
+<article style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #C23E0A">05</span>
+<h3 style="margin: 0; font-size: 24px">Mantenimiento y soporte</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Copias de seguridad diarias, soporte y ajustes todos los meses. Tu herramienta sigue creciendo con tu negocio.</p>
+</article>
+<article style="background: #0B0F14; color: #F4F2EE; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px">
+<h3 style="margin: 0; font-size: 24px; color: #FFFFFF">¿Tenés un proceso que te come horas?</h3>
+<a href="#contacto" style="align-self: flex-start; background: #FF5B1F; color: #0B0F14; text-decoration: none; padding: 13px 20px; border-radius: 11px; font-weight: 600; font-size: 15px">Contanos cuál</a>
+</article>
+</div>
+</section>
 
-                    <h1 class="hero__title">
-                        <span class="title__line">Ecosistemas Digitales.</span>
-                        <span class="title__line title__line--gradient">Desarrollo & Finanzas</span>
-                        <span class="title__line">Automatizadas</span>
-                    </h1>
-                    
-                    <p class="hero__description">
-                        Soluciones tecnológicas para agencias, desarrollo de ecosistemas financieros propios y lógicas de automatización para mercados cripto.
-                    </p>
+<section aria-labelledby="por-t" style="background: #FFFFFF; border-top: 1px solid #E2DED6; border-bottom: 1px solid #E2DED6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+<h2 id="por-t" style="margin: 0; font-size: 40px; line-height: 1.1; max-width: 720px">Por qué trabajar con nosotros</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #FF5B1F; padding-top: 18px">
+<h3 style="margin: 0; font-size: 20px">Hecho para tu forma de trabajar</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Tus reglas, tus nombres, tus horarios. No te adaptás vos al software.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #FF5B1F; padding-top: 18px">
+<h3 style="margin: 0; font-size: 20px">Verificado con tus números</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Antes de entregar, comparamos los resultados contra tus registros hasta que coincidan.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #FF5B1F; padding-top: 18px">
+<h3 style="margin: 0; font-size: 20px">Tus datos son tuyos</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Respaldo diario y, si un día te vas, te llevás todo en Excel.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #FF5B1F; padding-top: 18px">
+<h3 style="margin: 0; font-size: 20px">Precio claro</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Un pago de implementación y un abono mensual fijo. Sin sorpresas.</p>
+</div>
+</div>
+</div>
+</section>
 
-                    <div class="hero__buttons">
-                        <a href="#agencia" class="button button--primary button--hero">
-                            <span class="button__icon">
-                                <i class="fa-solid fa-rocket"></i>
-                            </span>
-                            <span class="button__text">
-                                <span class="button__main">Ver Cómo Funciona</span>
-                                <span class="button__sub">Resultados en 7 días</span>
-                            </span>
-                        </a>
-                        <a href="https://wa.me/5493804561541?text=Hola!%20Quiero%20automatizar%20mi%20negocio%20con%20IA" 
-                           target="_blank" 
-                           class="button button--whatsapp button--hero">
-                            <span class="button__icon">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </span>
-                            <span class="button__text">
-                                <span class="button__main">Hablar con un Experto</span>
-                                <span class="button__sub">Respuesta inmediata</span>
-                            </span>
-                        </a>
-                    </div>
+<section id="como" aria-labelledby="como-t" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<span style="font-size: 14px; font-weight: 600; color: #C23E0A; text-transform: uppercase; letter-spacing: 0.08em">Cómo trabajamos</span>
+<h2 id="como-t" style="margin: 0; font-size: 46px; line-height: 1.06">De la idea a la herramienta, en cuatro pasos</h2>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px">
+<li style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #C23E0A; line-height: 1">1</span>
+<h3 style="margin: 0; font-size: 20px">Entendemos tu negocio</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Una charla para ver cómo trabajás hoy y qué te frena.</p>
+</li>
+<li style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #C23E0A; line-height: 1">2</span>
+<h3 style="margin: 0; font-size: 20px">Propuesta cerrada</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Qué vamos a hacer, en cuánto tiempo y cuánto cuesta. Por escrito.</p>
+</li>
+<li style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #C23E0A; line-height: 1">3</span>
+<h3 style="margin: 0; font-size: 20px">Construimos y probamos</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Te mostramos avances y lo probás con tus datos reales antes de usarlo.</p>
+</li>
+<li style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #C23E0A; line-height: 1">4</span>
+<h3 style="margin: 0; font-size: 20px">Te acompañamos</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A505A">Soporte, respaldo y mejoras mientras tu negocio crece.</p>
+</li>
+</ol>
+</section>
 
-                    <!-- Stats Mejorados -->
-                    <div class="hero__stats">
-                        <div class="hero__stat" data-aos="flip-up" data-aos-delay="100">
-                            <div class="stat__icon">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <div class="stat__content">
-                                <h3 class="stat__number" data-target="300">0</h3>
-                                <span class="stat__symbol">%</span>
-                                <p class="stat__text">Aumento en Conversiones</p>
-                            </div>
-                        </div>
-                        <div class="hero__stat" data-aos="flip-up" data-aos-delay="200">
-                            <div class="stat__icon">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                            <div class="stat__content">
-                                <h3 class="stat__number">24</h3>
-                                <span class="stat__symbol">/7</span>
-                                <p class="stat__text">Tu Negocio Nunca Duerme</p>
-                            </div>
-                        </div>
-                        <div class="hero__stat" data-aos="flip-up" data-aos-delay="300">
-                            <div class="stat__icon">
-                                <i class="fa-solid fa-bolt"></i>
-                            </div>
-                            <div class="stat__content">
-                                <h3 class="stat__number" data-target="7">0</h3>
-                                <span class="stat__symbol">días</span>
-                                <p class="stat__text">Para Ver Resultados</p>
-                            </div>
-                        </div>
-                    </div>
+<section id="trabajo" aria-labelledby="trabajo-t" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 96px">
+<div style="background: #0B0F14; color: #F4F2EE; border-radius: 28px; padding: 48px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 14px; font-weight: 600; color: #FF7A47; text-transform: uppercase; letter-spacing: 0.08em">Trabajo reciente</span>
+<h2 id="trabajo-t" style="margin: 0; font-size: 36px; line-height: 1.1; color: #FFFFFF">Tablero comercial para una red de estaciones de servicio</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #B5BBC4">El dueño armaba su control de ventas en Excel. Hoy sube el archivo de su sistema cada noche y él y sus socios ven ventas, proyecciones, stock y alertas desde el celular. Verificado contra sus propios registros.</p>
+</div>
+<ul style="flex: 1 1 360px; min-width: 0; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<li style="background: #151B23; border: 1px solid #252D38; border-radius: 14px; padding: 16px; font-size: 15px; color: #E6E8EB">App instalable</li>
+<li style="background: #151B23; border: 1px solid #252D38; border-radius: 14px; padding: 16px; font-size: 15px; color: #E6E8EB">Usuarios y permisos</li>
+<li style="background: #151B23; border: 1px solid #252D38; border-radius: 14px; padding: 16px; font-size: 15px; color: #E6E8EB">Carga diaria del archivo</li>
+<li style="background: #151B23; border: 1px solid #252D38; border-radius: 14px; padding: 16px; font-size: 15px; color: #E6E8EB">Respaldo diario</li>
+</ul>
+</div>
+</section>
 
-                    <!-- Social Proof -->
-                    <div class="hero__proof" data-aos="fade-up" data-aos-delay="400">
-                        <div class="proof__avatars">
-                            <img src="https://i.pravatar.cc/40?img=1" alt="Cliente" class="proof__avatar">
-                            <img src="https://i.pravatar.cc/40?img=2" alt="Cliente" class="proof__avatar">
-                            <img src="https://i.pravatar.cc/40?img=3" alt="Cliente" class="proof__avatar">
-                            <img src="https://i.pravatar.cc/40?img=4" alt="Cliente" class="proof__avatar">
-                            <span class="proof__more">+50</span>
-                        </div>
-                        <p class="proof__text">
-                            <strong>Empresas ya están automatizando</strong> sus ventas con nosotros
-                            <span class="proof__rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <span>5.0</span>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+<section id="contacto" aria-labelledby="contacto-t" style="background: #FF5B1F">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 36px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h2 id="contacto-t" style="margin: 0; font-size: 52px; line-height: 1.02; color: #0B0F14">¿Qué te gustaría dejar de hacer a mano?</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #2A1206">Contanos tu caso. Te respondemos dentro de las 48 h hábiles.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; flex: 0 1 320px">
+<a href="https://wa.me/5492622650502?text=Hola%20CR%20Digital%2C%20quiero%20contarles%20un%20proyecto" style="background: #0B0F14; color: #FFFFFF; text-decoration: none; padding: 17px 22px; border-radius: 12px; font-weight: 600; font-size: 16px; text-align: center">Escribinos por WhatsApp</a>
+<a href="mailto:hola@crdigitalar.com" style="background: transparent; color: #0B0F14; text-decoration: none; padding: 17px 22px; border-radius: 12px; font-weight: 600; font-size: 16px; text-align: center; border: 2px solid #0B0F14">hola@crdigitalar.com</a>
+</div>
+</div>
+</section>
 
-                <div class="hero__visual" data-aos="fade-left" data-aos-delay="200">
-                    <!-- Dashboard Mockup -->
-                    <div class="visual__dashboard">
-                        <div class="dashboard__header">
-                            <div class="dashboard__dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="dashboard__title">CR Digital AI Dashboard</div>
-                        </div>
-                        <div class="dashboard__content">
-                            <div class="dashboard__metric" data-aos="fade-up" data-aos-delay="300">
-                                <div class="metric__icon">💰</div>
-                                <div class="metric__data">
-                                    <span class="metric__value">+$15,420</span>
-                                    <span class="metric__label">Ventas este mes</span>
-                                </div>
-                                <div class="metric__trend">
-                                    <i class="fa-solid fa-arrow-trend-up"></i> +47%
-                                </div>
-                            </div>
-                            <div class="dashboard__metric" data-aos="fade-up" data-aos-delay="400">
-                                <div class="metric__icon">🤖</div>
-                                <div class="metric__data">
-                                    <span class="metric__value">1,247</span>
-                                    <span class="metric__label">Consultas atendidas por IA</span>
-                                </div>
-                                <div class="metric__trend">
-                                    <i class="fa-solid fa-arrow-trend-up"></i> +89%
-                                </div>
-                            </div>
-                            <div class="dashboard__metric" data-aos="fade-up" data-aos-delay="500">
-                                <div class="metric__icon">⚡</div>
-                                <div class="metric__data">
-                                    <span class="metric__value">0.8s</span>
-                                    <span class="metric__label">Tiempo de respuesta</span>
-                                </div>
-                                <div class="metric__trend metric__trend--success">
-                                    <i class="fa-solid fa-check"></i> Óptimo
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Chat Preview -->
-                        <div class="dashboard__chat" data-aos="fade-up" data-aos-delay="600">
-                            <div class="chat__message chat__message--user">
-                                <div class="message__avatar">👤</div>
-                                <div class="message__bubble">¿Tienen disponible el producto X?</div>
-                            </div>
-                            <div class="chat__message chat__message--bot">
-                                <div class="message__avatar">🤖</div>
-                                <div class="message__bubble">
-                                    ¡Sí! Tenemos 15 unidades disponibles. 
-                                    <strong>¿Te gustaría reservar una?</strong>
-                                    <div class="message__typing">
-                                        <span></span><span></span><span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<footer style="background: #0B0F14">
+<div style="max-width: 1200px; margin: 0 auto; padding: 30px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: #9AA1AB">
+<span>CR Digital · Soluciones digitales a medida · Argentina</span>
+<span>© 2026 CR Digital</span>
+</div>
+</footer>
 
-                    <!-- Elementos decorativos -->
-                    <div class="visual__decoration">
-                        <div class="decoration__circle decoration__circle--1"></div>
-                        <div class="decoration__circle decoration__circle--2"></div>
-                        <div class="decoration__circle decoration__circle--3"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Floating Elements Mejorados -->
-            <div class="hero__floating">
-                <div class="floating-element floating-element--1">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-                <div class="floating-element floating-element--2">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <div class="floating-element floating-element--3">
-                    <i class="fa-solid fa-rocket"></i>
-                </div>
-                <div class="floating-element floating-element--4">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <div class="floating-element floating-element--5">
-                    <i class="fa-solid fa-lightbulb"></i>
-                </div>
-                <div class="floating-element floating-element--6">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ==================== AGENCIA (CR DIGITAL) ==================== -->
-        <section class="services section" id="agencia">
-            <div class="container">
-                <div class="section__header" data-aos="fade-up">
-                    <span class="section__subtitle">Lo Que Hacemos Por Ti</span>
-                    <h2 class="section__title">
-                        Transformamos Ideas en <span class="text-gradient">Resultados Reales</span>
-                    </h2>
-                    <p class="section__description">
-                        No vendemos servicios. Creamos soluciones que multiplican tus ventas y automatizan tu negocio
-                    </p>
-                </div>
-
-                <div class="services__grid">
-                    <!-- Service Card 1: Web Development -->
-                    <div class="service__card service__card--premium" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="service__number">01</div>
-                        <div class="service__icon service__icon--pulse">
-                            <i class="fa-solid fa-rocket"></i>
-                        </div>
-                        <h3 class="service__title">Tu Sitio Web que Vende 24/7</h3>
-                        <p class="service__description">
-                            No es solo un sitio bonito. Es tu <strong>vendedor digital</strong> trabajando mientras duermes. 
-                            Diseñado para convertir visitantes en clientes.
-                        </p>
-                        <div class="service__impact">
-                            <div class="impact__item">
-                                <span class="impact__number">3X</span>
-                                <span class="impact__text">Más conversiones</span>
-                            </div>
-                            <div class="impact__item">
-                                <span class="impact__number">100%</span>
-                                <span class="impact__text">Responsive</span>
-                            </div>
-                        </div>
-                        <ul class="service__features">
-                            <li><i class="fa-solid fa-bolt"></i> Carga ultrarrápida</li>
-                            <li><i class="fa-solid fa-mobile-screen"></i> Perfecto en móvil</li>
-                            <li><i class="fa-solid fa-magnifying-glass"></i> SEO optimizado</li>
-                            <li><i class="fa-solid fa-shield-halved"></i> Hosting + SSL incluido</li>
-                        </ul>
-                        <div class="service__cta">
-                            <a href="#contact" class="button button--primary">
-                                <i class="fa-solid fa-comments"></i>
-                                Quiero Mi Sitio Web
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Service Card 2: AI Solutions -->
-                    <div class="service__card service__card--featured service__card--premium" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="service__badge">
-                            <i class="fa-solid fa-fire"></i> Más Solicitado
-                        </div>
-                        <div class="service__number">02</div>
-                        <div class="service__icon service__icon--glow">
-                            <i class="fa-solid fa-brain"></i>
-                        </div>
-                        <h3 class="service__title">IA que Atiende a Tus Clientes</h3>
-                        <p class="service__description">
-                            Imagina tener un <strong>asistente que nunca duerme</strong>, responde al instante y 
-                            convierte consultas en ventas. Eso es lo que hace nuestra IA.
-                        </p>
-                        <div class="service__impact">
-                            <div class="impact__item">
-                                <span class="impact__number">24/7</span>
-                                <span class="impact__text">Sin descanso</span>
-                            </div>
-                            <div class="impact__item">
-                                <span class="impact__number">10X</span>
-                                <span class="impact__text">Más rápido</span>
-                            </div>
-                        </div>
-                        <ul class="service__features">
-                            <li><i class="fa-solid fa-comments"></i> Chatbot inteligente</li>
-                            <li><i class="fa-solid fa-clock"></i> Respuesta instantánea</li>
-                            <li><i class="fa-solid fa-language"></i> Entiende contexto</li>
-                            <li><i class="fa-solid fa-link"></i> Integración WhatsApp, Web, Facebook</li>
-                        </ul>
-                        <div class="service__testimonial">
-                            <p>"Aumenté mis ventas un 40% en el primer mes. El chatbot responde mejor que yo."</p>
-                            <span>- Cliente Real de CR Digital</span>
-                        </div>
-                        <div class="service__cta">
-                            <a href="#contact" class="button button--primary button--glow">
-                                <i class="fa-solid fa-robot"></i>
-                                Quiero Mi Asistente IA
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Service Card 3: WhatsApp Inventory -->
-                    <div class="service__card service__card--premium" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="service__number">03</div>
-                        <div class="service__icon service__icon--whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <h3 class="service__title">Tu Inventario en WhatsApp</h3>
-                        <p class="service__description">
-                            Olvídate de Excel y papeles. Controla tu stock desde WhatsApp. 
-                            <strong>Simple, rápido y sin complicaciones.</strong>
-                        </p>
-                        <div class="service__impact">
-                            <div class="impact__item">
-                                <span class="impact__number">0</span>
-                                <span class="impact__text">Instalación</span>
-                            </div>
-                            <div class="impact__item">
-                                <span class="impact__number">100%</span>
-                                <span class="impact__text">Móvil</span>
-                            </div>
-                        </div>
-                        <ul class="service__features">
-                            <li><i class="fa-brands fa-whatsapp"></i> Todo desde WhatsApp</li>
-                            <li><i class="fa-solid fa-bell"></i> Alertas automáticas</li>
-                            <li><i class="fa-solid fa-users"></i> Múltiples usuarios</li>
-                            <li><i class="fa-solid fa-chart-simple"></i> Reportes al instante</li>
-                        </ul>
-                        <div class="service__cta">
-                            <a href="#contact" class="button button--primary">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                Quiero Probar Gratis
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trust Indicators -->
-                <div class="services__trust" data-aos="fade-up" data-aos-delay="400">
-                    <div class="trust__item">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>Garantía de 30 días</span>
-                    </div>
-                    <div class="trust__item">
-                        <i class="fa-solid fa-headset"></i>
-                        <span>Soporte incluido</span>
-                    </div>
-                    <div class="trust__item">
-                        <i class="fa-solid fa-rocket"></i>
-                        <span>Listo en 7 días</span>
-                    </div>
-                    <div class="trust__item">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>100% satisfacción</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== MIS SISTEMAS ==================== -->
-        <section class="services section" id="sistemas">
-            <div class="container">
-                <div class="section__header" data-aos="fade-up">
-                    <span class="section__subtitle">Portafolio Técnico</span>
-                    <h2 class="section__title">
-                        Sistemas para la <span class="text-gradient">Autosuficiencia</span>
-                    </h2>
-                    <p class="section__description">
-                        Desarrollos propios orientados a la gestión financiera y ejecución en mercados.
-                    </p>
-                </div>
-
-                <div class="services__grid">
-                    <div class="service__card service__card--premium" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="service__icon service__icon--pulse">
-                            <i class="fa-solid fa-wallet"></i>
-                        </div>
-                        <h3 class="service__title">Billetera 3.0</h3>
-                        <p class="service__description">
-                            Ecosistema financiero centralizado construido sobre <strong>Google Apps Script</strong>. Cruce de bases de datos para el control absoluto de capital e inversiones sin depender de terceros.
-                        </p>
-                        <ul class="service__features">
-                            <li><i class="fa-solid fa-code"></i> Arquitectura Apps Script</li>
-                            <li><i class="fa-solid fa-database"></i> Gestión de Bases de Datos</li>
-                            <li><i class="fa-solid fa-chart-pie"></i> Analítica en tiempo real</li>
-                        </ul>
-                    </div>
-
-                    <div class="service__card service__card--premium" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="service__icon service__icon--glow">
-                            <i class="fa-brands fa-bitcoin"></i>
-                        </div>
-                        <h3 class="service__title">Lógicas de Scalping & Bots</h3>
-                        <p class="service__description">
-                            Desarrollo de algoritmos de ejecución para mercados cripto. Análisis de datos en milisegundos para aprovechar la volatilidad mediante sistemas automatizados.
-                        </p>
-                        <ul class="service__features">
-                            <li><i class="fa-solid fa-bolt"></i> Ejecución de alta frecuencia</li>
-                            <li><i class="fa-solid fa-robot"></i> Automatización de operativas</li>
-                            <li><i class="fa-solid fa-shield-halved"></i> Gestión de riesgo algorítmica</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== PROCESS SECTION ==================== -->
-        <section class="process section" id="ai">
-            <div class="container">
-                <div class="section__header" data-aos="fade-up">
-                    <span class="section__subtitle">Cómo Lo Hacemos</span>
-                    <h2 class="section__title">
-                        De la Idea al <span class="text-gradient">Éxito</span> en 4 Pasos
-                    </h2>
-                    <p class="section__description">
-                        Un proceso simple y probado que transforma tu negocio en una máquina de ventas automatizada
-                    </p>
-                </div>
-
-                <div class="process__timeline">
-                    <!-- Step 1 -->
-                    <div class="process__step" data-aos="fade-right" data-aos-delay="100">
-                        <div class="step__number">
-                            <span>01</span>
-                            <div class="number__glow"></div>
-                        </div>
-                        <div class="step__content">
-                            <div class="step__icon">
-                                <i class="fa-solid fa-comments"></i>
-                            </div>
-                            <h3 class="step__title">Conversamos y Entendemos</h3>
-                            <p class="step__description">
-                                Una videollamada de 30 minutos donde <strong>entendemos tu negocio</strong>, 
-                                tus dolores y tus objetivos. Sin tecnicismos, solo soluciones reales.
-                            </p>
-                            <div class="step__features">
-                                <span class="feature__tag"><i class="fa-solid fa-video"></i> Videollamada</span>
-                                <span class="feature__tag"><i class="fa-solid fa-clock"></i> 30 minutos</span>
-                                <span class="feature__tag"><i class="fa-solid fa-gift"></i> Gratis</span>
-                            </div>
-                        </div>
-                        <div class="step__line"></div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="process__step process__step--reverse" data-aos="fade-left" data-aos-delay="200">
-                        <div class="step__number">
-                            <span>02</span>
-                            <div class="number__glow"></div>
-                        </div>
-                        <div class="step__content">
-                            <div class="step__icon">
-                                <i class="fa-solid fa-lightbulb"></i>
-                            </div>
-                            <h3 class="step__title">Diseñamos Tu Solución</h3>
-                            <p class="step__description">
-                                Creamos una <strong>estrategia personalizada</strong> con mockups, flujos y 
-                                una demo funcional. Verás exactamente cómo funcionará antes de pagar.
-                            </p>
-                            <div class="step__features">
-                                <span class="feature__tag"><i class="fa-solid fa-palette"></i> Mockups</span>
-                                <span class="feature__tag"><i class="fa-solid fa-code"></i> Demo funcional</span>
-                                <span class="feature__tag"><i class="fa-solid fa-check"></i> Tu aprobación</span>
-                            </div>
-                        </div>
-                        <div class="step__line"></div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="process__step" data-aos="fade-right" data-aos-delay="300">
-                        <div class="step__number">
-                            <span>03</span>
-                            <div class="number__glow"></div>
-                        </div>
-                        <div class="step__content">
-                            <div class="step__icon">
-                                <i class="fa-solid fa-rocket"></i>
-                            </div>
-                            <h3 class="step__title">Construimos y Lanzamos</h3>
-                            <p class="step__description">
-                                En <strong>7 días tu solución está lista</strong>. La implementamos, 
-                                la probamos y la lanzamos. Todo mientras te mantenemos informado.
-                            </p>
-                            <div class="step__features">
-                                <span class="feature__tag"><i class="fa-solid fa-calendar"></i> 7 días</span>
-                                <span class="feature__tag"><i class="fa-solid fa-vial"></i> Testing incluido</span>
-                                <span class="feature__tag"><i class="fa-solid fa-rocket"></i> Lanzamiento</span>
-                            </div>
-                        </div>
-                        <div class="step__line"></div>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="process__step process__step--reverse" data-aos="fade-left" data-aos-delay="400">
-                        <div class="step__number">
-                            <span>04</span>
-                            <div class="number__glow"></div>
-                        </div>
-                        <div class="step__content">
-                            <div class="step__icon">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <h3 class="step__title">Optimizamos y Crecemos</h3>
-                            <p class="step__description">
-                                No te dejamos solo. <strong>Monitoreamos, optimizamos y mejoramos</strong> 
-                                continuamente. Tu éxito es nuestro éxito.
-                            </p>
-                            <div class="step__features">
-                                <span class="feature__tag"><i class="fa-solid fa-headset"></i> Soporte 24/7</span>
-                                <span class="feature__tag"><i class="fa-solid fa-chart-simple"></i> Reportes</span>
-                                <span class="feature__tag"><i class="fa-solid fa-infinity"></i> Mejoras continuas</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="process__cta" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="process__cta-content">
-                        <h3>¿Listo para Empezar?</h3>
-                        <p>Agenda tu llamada de 30 minutos y descubre cómo podemos ayudarte</p>
-                    </div>
-                    <a href="#contact" class="button button--primary button--large">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        Agendar Llamada Gratis
-                    </a>
-                </div>
-            </div>
-        </section>
-
-<!-- ==================== CTA SECTION ==================== -->
-        <section class="cta section" id="contact">
-            <div class="container">
-                <div class="cta__container">
-                    <div class="cta__content" data-aos="fade-right">
-                        <h2 class="cta__title">
-                            ¿Listo para <span class="text-gradient">Digitalizar tu Negocio?</span>
-                        </h2>
-                        <p class="cta__description">
-                            Cuéntanos sobre tu proyecto y recibe una cotización personalizada. 
-                            Estamos listos para hacer crecer tu negocio.
-                        </p>
-                        <div class="cta__features">
-                            <div class="cta__feature">
-                                <i class="fa-solid fa-check-circle"></i>
-                                <span>Respuesta en menos de 24 horas</span>
-                            </div>
-                            <div class="cta__feature">
-                                <i class="fa-solid fa-check-circle"></i>
-                                <span>Cotización sin compromiso</span>
-                            </div>
-                            <div class="cta__feature">
-                                <i class="fa-solid fa-check-circle"></i>
-                                <span>Asesoría personalizada</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cta__form" data-aos="fade-left">
-                        <form id="contact-form" class="contact__form">
-                            <div class="form__group">
-                                <label for="name" class="form__label">Nombre Completo</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    class="form__input" 
-                                    placeholder="Tu nombre"
-                                    required
-                                >
-                            </div>
-
-                            <div class="form__group">
-                                <label for="email" class="form__label">Email</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    class="form__input" 
-                                    placeholder="tu@email.com"
-                                    required
-                                    autocomplete="email"
-                                    aria-required="true"
-                                >
-                            </div>
-
-                            <div class="form__group">
-                                <label for="phone" class="form__label">Teléfono / WhatsApp</label>
-                                <input 
-                                    type="tel" 
-                                    id="phone" 
-                                    name="phone" 
-                                    class="form__input" 
-                                    placeholder="+54 380 456-1541"
-                                    required
-                                    autocomplete="tel"
-                                    aria-required="true"
-                                >
-                            </div>
-
-                            <div class="form__group">
-                                <label for="message" class="form__label">Mensaje</label>
-                                <textarea 
-                                    id="message" 
-                                    name="message" 
-                                    class="form__input form__textarea" 
-                                    placeholder="Cuéntanos sobre tu proyecto..."
-                                    rows="4"
-                                    required
-                                    aria-required="true"
-                                ></textarea>
-                            </div>
-
-                            <button type="submit" class="button button--primary button--full">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                Enviar Mensaje
-                            </button>
-
-                            <div class="form__divider">
-                                <span>o contacta directamente</span>
-                            </div>
-
-                            <a href="https://wa.me/5493804561541?text=Hola!%20Quiero%20información%20sobre%20sus%20servicios" 
-                               target="_blank" 
-                               class="button button--whatsapp button--full">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                Escribir por WhatsApp
-                            </a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== LA ACADEMIA ==================== -->
-        <section class="pricing section" id="academia">
-            <div class="container">
-                <div class="section__header" data-aos="fade-up">
-                    <span class="section__subtitle">Recursos Avalados</span>
-                    <h2 class="section__title">
-                        El Arsenal de <span class="text-gradient">Conocimiento</span>
-                    </h2>
-                    <p class="section__description">
-                        Formación en desarrollo, automatización e inversión respaldada por resultados.
-                    </p>
-                </div>
-
-                <div class="pricing__grid">
-                    <div class="pricing__card" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="pricing__name">Trading Algorítmico</h3>
-                        <div class="service__icon" style="margin: 0 auto 1.5rem;">
-                            <i class="fa-solid fa-chart-candlestick"></i>
-                        </div>
-                        <p class="service__description text-center mb-4">De cero a la creación de tus primeros bots de scalping.</p>
-                        <a href="TU_LINK_HOTMART" class="button button--secondary button--full" target="_blank">
-                            Ver en Hotmart
-                        </a>
-                    </div>
-
-                    <div class="pricing__card pricing__card--featured" data-aos="fade-up" data-aos-delay="200">
-                        <div class="pricing__badge">Recomendado</div>
-                        <h3 class="pricing__name">IA para Developers</h3>
-                        <div class="service__icon service__icon--glow" style="margin: 0 auto 1.5rem;">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-                        <p class="service__description text-center mb-4">Domina Cursor, Flow y automatiza tu código X10.</p>
-                        <a href="TU_LINK_HOTMART" class="button button--primary button--full" target="_blank">
-                            Acceder al Curso
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__container">
-                <div class="footer__content">
-                    <a href="#home" class="footer__logo" aria-label="Ir al inicio">
-                        <img src="./assets/images/Logo.png" alt="CR Digital Logo" class="footer__logo-img">
-                    </a>
-                    <p class="footer__description">
-                        Transformamos negocios con soluciones digitales innovadoras 
-                        y tecnología de Inteligencia Artificial.
-                    </p>
-                    <div class="footer__social">
-                        <a href="https://www.instagram.com/_crdigital_/" target="_blank" class="footer__social-link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/crdigitalweb/" target="_blank" class="footer__social-link">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="https://wa.me/5493804561541" target="_blank" class="footer__social-link">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:disewebtalle@gmail.com" class="footer__social-link">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__links">
-                    <div class="footer__group">
-                        <h3 class="footer__title">Enlaces Rápidos</h3>
-                        <ul class="footer__list">
-                            <li><a href="#home" class="footer__link">Inicio</a></li>
-                            <li><a href="#agencia" class="footer__link">Agencia</a></li>
-                            <li><a href="#sistemas" class="footer__link">Mis Sistemas</a></li>
-                            <li><a href="#academia" class="footer__link">Academia</a></li>
-                            <li><a href="#contact" class="footer__link">Contacto</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer__group">
-                        <h3 class="footer__title">Servicios</h3>
-                        <ul class="footer__list">
-                            <li><a href="#agencia" class="footer__link">Páginas Web</a></li>
-                            <li><a href="#agencia" class="footer__link">Soluciones IA</a></li>
-                            <li><a href="#agencia" class="footer__link">Inventarios WhatsApp</a></li>
-                            <li><a href="#agencia" class="footer__link">Marketing Digital</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer__group">
-                        <h3 class="footer__title">Contacto</h3>
-                        <ul class="footer__list">
-                            <li class="footer__info">
-                                <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:disewebtalle@gmail.com" class="footer__link">
-                                    disewebtalle@gmail.com
-                                </a>
-                            </li>
-                            <li class="footer__info">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <a href="https://wa.me/5493804561541" class="footer__link">
-                                    +54 380 456-1541
-                                </a>
-                            </li>
-                            <li class="footer__info">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <span class="footer__link">Argentina</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer__bottom">
-                <p class="footer__copy">
-                    &copy; 2026 CR Digital. Todos los derechos reservados.
-                </p>
-                <p class="footer__credits">
-                    Hecho con <i class="fa-solid fa-heart"></i> por CR Digital
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
-    <a href="https://wa.me/5493804561541?text=Hola!%20Quiero%20información%20sobre%20sus%20servicios" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="whatsapp-float"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    </a>
-
-    <!-- ==================== SCROLL UP BUTTON ==================== -->
-    <a href="#home" class="scrollup" id="scroll-up" aria-label="Volver arriba">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </a>
-
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="./js/main.js" defer></script>
-    
+</div>
 </body>
 </html>
