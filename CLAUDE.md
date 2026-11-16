@@ -13,4 +13,4 @@ Objetivo: Igna manda el link a quien le pregunta a qué se dedica. En 10 segundo
 - Dirección visual "Señal" con contraste: cabecera y contacto oscuros (`#16181D`, cuadrícula sutil), cuerpo claro `#F9F9F7`, Instrument Sans + Instrument Serif (itálica azul para remarcar), acento `#2563EB`. Logo: cuadrado claro con "CR" y barra azul. Arriba, un celular con el tablero de ejemplo.
 - Voz en primera persona (Igna), sin fingir equipo. Sin precios. Sin mencionar el Ejército.
 - 5 bloques: qué hago + WhatsApp + fundador · caso real (estaciones) con mockup · 3 situaciones (datos / a mano / arrancando) · cómo trabajo ("primero te digo si lo necesitás") · contacto.
-- Pendiente: foto de Igna (hoy hay un círculo con "IC"). Living Studio (IA conversacional) quedó para más adelante; prototipo en Claude Design.
+- Foto de Igna (15/11): `img/ignacio-casado.jpg` (240×240, recortada sin la marca de Gemini), en el bloque del fundador a 56 px. Rama `foto-fundador`, publicar con el OK de Igna. Living Studio (IA conversacional) quedó para más adelante; prototipo en Claude Design.
